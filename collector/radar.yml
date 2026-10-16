@@ -1,8 +1,25 @@
 name: Collect real geohazard reports
+run-name: Radar scan · ${{ github.event.inputs.request_id || github.run_number }}
 on:
   schedule:
     - cron: '37 0 * * *'
   workflow_dispatch:
+    inputs:
+      request_id:
+        description: '页面扫描请求关联号'
+        required: false
+        type: string
+      query:
+        description: '公开网页搜索关键词'
+        required: false
+        default: '地质灾害 成功避险'
+        type: string
+      mode:
+        description: 'all=搜索发现+来源扫描，sources=仅来源'
+        required: false
+        default: all
+        type: choice
+        options: [all, sources]
 permissions:
   contents: write
 concurrency:
@@ -21,7 +38,11 @@ jobs:
           python-version: '3.12'
       - run: pip install -r collector/requirements.txt
       - run: python -m unittest discover -s collector -p 'test_*.py'
-      - name: Fetch official source pages and preserve incremental state
+      - name: Run public search discovery and configured sources
+        env:
+          RADAR_QUERY: ${{ github.event.inputs.query || '地质灾害 成功避险' }}
+          RADAR_MODE: ${{ github.event.inputs.mode || 'all' }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: python collector/crawl.py --output data/live-feed.json
       - name: Persist real feed for Web readers
         run: |

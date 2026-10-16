@@ -9,13 +9,15 @@ import subprocess
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urljoin, urlsplit, urlunsplit
+from urllib.parse import urljoin, urlsplit, urlunsplit, urlencode
+import os
+import xml.etree.ElementTree as ET
 
 from bs4 import BeautifulSoup
 
 HAZARDS = ['地面塌陷', '地面沉降', '地裂缝', '泥石流', '滑坡', '崩塌']
 REGIONS = ['福建', '湖北', '广西', '重庆', '陕西', '湖南', '四川', '云南', '西藏', '甘肃', '贵州', '浙江', '广东', '江西', '河南', '河北', '山西', '山东', '江苏', '安徽', '北京', '上海', '天津', '辽宁', '吉林', '黑龙江', '内蒙古', '青海', '宁夏', '新疆', '海南']
-BODY_SELECTORS = ['.TRS_Editor', '.TRS_UEDITOR', '#UCAP-CONTENT', '.pages_content', '#zoom', '.article-content', '.view-article', 'section.detail_article_content', 'article', '.news_content', '.detail-content', '.zw_txt']
+BODY_SELECTORS = ['.TRS_Editor', '.TRS_UEDITOR', '#UCAP-CONTENT', '.pages_content', '#zoom', '.article-content', '.view-article', 'section.detail_article_content', '#js_content', 'article', '.news_content', '.detail-content', '.zw_txt']
 EXCLUSIONS = re.compile(r'演练|会议|部署|宣传活动|科普直播|资质|审批|招标|采购|招聘')
 DISCOVERY = re.compile(r'成功避险|成功避让|成功预警|转移避险|避险避灾|紧急转移|紧急撤离|连夜撤离|提前.{0,5}(撤离|转移)|地质灾害.{0,8}避险|滑坡.{0,8}避险|崩塌.{0,8}预警')
 GEO_TOPIC = re.compile(r'地质灾害|地灾|滑坡|崩塌|泥石流|地面塌陷|地裂缝|地面沉降')
@@ -83,7 +85,7 @@ def metadata(soup, names):
 def article_data(soup, url, source):
     title = metadata(soup, ['articletitle', 'og:title'])
     if not title:
-        heading = soup.find('h1')
+        heading = soup.select_one('#activity-name') or soup.find('h1')
         title = heading.get_text(' ', strip=True) if heading else soup.title.get_text(' ', strip=True) if soup.title else ''
     title = re.split(r'--中华人民共和国|_中国地质调查局', title)[0].strip()
     body = None
@@ -148,12 +150,16 @@ def split_report(article, province='全国'):
 
 
 def crawl_source(source, archive):
+    if source['type'] == 'search':
+        return crawl_search(source, archive)
+    if source['type'] == 'rss':
+        return crawl_rss(source, archive)
     started = timestamp()
     results, failures = [], []
     soup, effective, raw = fetch(source['url'])
     archive.mkdir(parents=True, exist_ok=True)
     (archive / (digest(source['url'])[:20] + '.html')).write_bytes(raw)
-    if source['type'] == 'article':
+    if source['type'] in ['article', 'wechat']:
         results.extend(split_report(article_data(soup, effective, source), source['province']))
         scanned = 1
     else:
@@ -204,17 +210,100 @@ def merge_feed(previous, records):
     return sorted(items.values(), key=lambda i: (i['publishedAt'], i['id']), reverse=True), added, changed
 
 
+def linked_reports(source, links, archive, started, http_status=200):
+    results, failures = [], []
+    selected = links[:source.get('maxArticles', 8)]
+    for url, title in selected:
+        try:
+            soup, effective, raw = fetch(url)
+            archive.mkdir(parents=True, exist_ok=True)
+            (archive / (digest(url)[:20] + '.html')).write_bytes(raw)
+            article_source = {**source, 'publisher': (urlsplit(effective).hostname + '（发布主体待核验）') if source['type'] == 'search' else source.get('publisher') or urlsplit(effective).hostname}
+            article = article_data(soup, effective, article_source)
+            if not article['title']:
+                article['title'] = title
+            results.extend(split_report(article, source.get('province', '全国')))
+        except Exception as exc:
+            failures.append({'url': url, 'message': str(exc)})
+    return results, {'sourceId': source['id'], 'name': source['name'], 'url': source['url'], 'startedAt': started, 'finishedAt': timestamp(), 'status': 'partial' if failures else 'success', 'httpStatus': http_status, 'pagesScanned': 1 + len(selected), 'recordsFound': len(results), 'failures': failures}
+
+
+def crawl_rss(source, archive):
+    started = timestamp()
+    _, effective, raw = fetch(source['url'])
+    root = ET.fromstring(raw)
+    links = []
+    for entry in root.findall('.//item') + root.findall('.//{http://www.w3.org/2005/Atom}entry'):
+        title = entry.findtext('title') or entry.findtext('{http://www.w3.org/2005/Atom}title') or ''
+        link = entry.findtext('link')
+        if not link:
+            atom = entry.find('{http://www.w3.org/2005/Atom}link')
+            link = atom.get('href') if atom is not None else ''
+        if link and discovery_title(title):
+            candidate = canonical_url(urljoin(effective, link))
+            if source.get('allowedHosts') and not allowed_article_url(candidate, source, effective):
+                continue
+            if candidate not in [u for u, _ in links]:
+                links.append((candidate, title))
+    return linked_reports(source, links, archive, started)
+
+
+def crawl_search(source, archive):
+    started = timestamp()
+    query = source['query']
+    key = os.environ.get('TAVILY_API_KEY', '').strip()
+    if key:
+        with tempfile.TemporaryDirectory(prefix='radar-search-') as directory:
+            payload = Path(directory) / 'request.json'
+            payload.write_text(json.dumps({'api_key': key, 'query': query, 'max_results': 8, 'search_depth': 'basic'}))
+            output = Path(directory) / 'response.json'
+            result = subprocess.run(['curl', '--silent', '--show-error', '--fail', '--max-time', '30', '--request', 'POST', 'https://api.tavily.com/search', '--header', 'Content-Type: application/json', '--data-binary', '@' + str(payload), '--output', str(output)], capture_output=True, text=True)
+            if result.returncode:
+                raise RuntimeError('配置的搜索服务请求失败（密钥未输出）')
+            data = json.loads(output.read_text())
+        links = [(canonical_url(i['url']), i.get('title', '')) for i in data.get('results', []) if i.get('url') and (discovery_title(i.get('title', '')) or GEO_TOPIC.search(i.get('content', '')))]
+        provider = 'Tavily'
+    else:
+        search_url = 'https://www.bing.com/search?' + urlencode({'q': query, 'format': 'rss'})
+        _, _, raw = fetch(search_url)
+        root = ET.fromstring(raw)
+        links = []
+        for entry in root.findall('.//item'):
+            title = entry.findtext('title') or ''
+            description = entry.findtext('description') or ''
+            link = entry.findtext('link') or ''
+            if link and (discovery_title(title) or (GEO_TOPIC.search(title + description) and ACTION_TOPIC.search(title + description))):
+                candidate = canonical_url(link)
+                if candidate not in [u for u, _ in links]:
+                    links.append((candidate, title))
+        provider = 'Bing公开搜索RSS'
+    records, run = linked_reports(source, links, archive, started)
+    run['searchQuery'] = query
+    run['searchProvider'] = provider
+    run['discoveredLinks'] = len(links)
+    if not links:
+        run['status'] = 'partial'
+        run['failures'].append({'url': source['url'], 'message': f'{provider}未返回可核验的地灾相关链接；本次不能据此声称完成全网覆盖，来源扫描独立继续。'})
+    return records, run
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--sources', default='collector/sources.json')
     parser.add_argument('--output', default='public/data/live-feed.json')
     parser.add_argument('--archive', default='work/crawl/raw')
+    parser.add_argument('--mode', choices=['all', 'sources'], default=os.environ.get('RADAR_MODE', 'sources'))
+    parser.add_argument('--query', default=os.environ.get('RADAR_QUERY', '地质灾害 成功避险'))
     args = parser.parse_args()
     config = json.loads(Path(args.sources).read_text())
     output = Path(args.output)
     previous = json.loads(output.read_text()) if output.exists() else {'items': [], 'runs': []}
     records, runs = [], []
-    sources = config['sources']
+    sources = [source for source in config['sources'] if source.get('enabled', True)]
+    if args.mode == 'all':
+        sources.insert(0, {'id': 'web-discovery', 'name': '公开网页搜索发现', 'publisher': '搜索发现（发布机构待核验）', 'category': '搜索发现', 'type': 'search', 'province': '全国', 'url': 'https://www.bing.com/search?' + urlencode({'q': args.query}), 'query': args.query, 'maxArticles': 8})
+    if not sources:
+        raise SystemExit('没有启用的数据源，未执行空扫描')
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
         futures = {pool.submit(crawl_source, source, Path(args.archive)): source for source in sources}
         for future in concurrent.futures.as_completed(futures):
@@ -229,7 +318,7 @@ def main():
             print(json.dumps(run, ensure_ascii=False), flush=True)
     items, added, changed = merge_feed(previous, records)
     generated = timestamp()
-    batch = {'id': 'crawl-' + generated, 'startedAt': min(r['startedAt'] for r in runs), 'finishedAt': generated, 'newRecords': added, 'changedRecords': changed, 'successfulSources': sum(r['status'] != 'failure' for r in runs), 'failedSources': sum(r['status'] == 'failure' for r in runs), 'results': sorted(runs, key=lambda r:r['sourceId'])}
+    batch = {'id': 'crawl-' + generated, 'startedAt': min(r['startedAt'] for r in runs), 'finishedAt': generated, 'query': args.query, 'mode': args.mode, 'newRecords': added, 'changedRecords': changed, 'successfulSources': sum(r['status'] != 'failure' for r in runs), 'failedSources': sum(r['status'] == 'failure' for r in runs), 'results': sorted(runs, key=lambda r:r['sourceId'])}
     feed = {'schema': 1, 'generatedAt': generated, 'lastSuccessAt': generated if records else previous.get('lastSuccessAt',''), 'scope': '登记的部门发布、地方媒体与区县新闻；名录条目单列为待补证线索，未经过人工案例认定', 'sources': sources, 'items': items, 'runs': [batch, *previous.get('runs', [])][:30]}
     output.parent.mkdir(parents=True, exist_ok=True)
     temp = output.with_suffix('.tmp')

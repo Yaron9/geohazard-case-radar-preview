@@ -1,5 +1,8 @@
 import unittest
-from crawl import article_data, canonical_url, merge_feed, split_report, allowed_article_url, discovery_title
+from unittest.mock import patch
+from pathlib import Path
+import tempfile
+from crawl import article_data, canonical_url, merge_feed, split_report, allowed_article_url, discovery_title, crawl_rss, crawl_search
 from bs4 import BeautifulSoup
 
 class CollectorTests(unittest.TestCase):
@@ -44,6 +47,32 @@ class CollectorTests(unittest.TestCase):
         self.assertTrue(all(r['resourceKind']=='index-entry' for r in records))
         self.assertTrue(all('6590' not in r['body'] for r in records))
         self.assertTrue(all(not e['quote'] and not e['confirmed'] for r in records for e in r['evidence']))
+    def test_wechat_body_and_title_are_supported_without_claiming_account_history(self):
+        text='巡查人员发现滑坡裂缝，立即组织群众转移避让。' * 8
+        soup=BeautifulSoup(f'<h2 id="activity-name">公开公众号滑坡避险报道</h2><div id="js_content">{text}</div>','html.parser')
+        article=article_data(soup,'https://mp.weixin.qq.com/s/example',{'id':'wechat','publisher':'待核验公众号'})
+        self.assertEqual(article['title'],'公开公众号滑坡避险报道')
+        self.assertIn('巡查人员',article['body'])
+        self.assertEqual(article['publishedAt'],'')
+    def test_rss_reads_original_report_on_another_publisher_host(self):
+        rss='<rss><channel><item><title>发现滑坡裂缝，组织群众转移</title><link>https://county.example.org/report.html</link></item></channel></rss>'.encode()
+        article=('<h1>发现滑坡裂缝，组织群众转移</h1><article>'+('2024年7月1日发现滑坡裂缝，立即组织群众转移，无人员伤亡。'*8)+'</article>').encode()
+        source={'id':'rss','name':'RSS','type':'rss','url':'https://feeds.example.org/rss','publisher':'','province':'全国'}
+        responses=[(None,source['url'],rss),(BeautifulSoup(article,'html.parser'),'https://county.example.org/report.html',article)]
+        with tempfile.TemporaryDirectory() as directory,patch('crawl.fetch',side_effect=responses):
+            records,run=crawl_rss(source,Path(directory))
+        self.assertEqual(len(records),1)
+        self.assertEqual(records[0]['url'],'https://county.example.org/report.html')
+        self.assertEqual(records[0]['publisher'],'county.example.org')
+        self.assertEqual(run['pagesScanned'],2)
+    def test_search_irrelevant_results_remain_visible_and_do_not_become_reports(self):
+        raw=b'<rss><channel><item><title>Unrelated news</title><link>https://example.org/unrelated</link></item></channel></rss>'
+        source={'id':'web-discovery','name':'Search','type':'search','url':'https://www.bing.com/search?q=test','query':'地质灾害 成功避险'}
+        with tempfile.TemporaryDirectory() as directory,patch.dict('os.environ',{'TAVILY_API_KEY':''}),patch('crawl.fetch',return_value=(None,source['url'],raw)):
+            records,run=crawl_search(source,Path(directory))
+        self.assertEqual(records,[])
+        self.assertEqual(run['status'],'partial')
+        self.assertIn('不能据此声称',run['failures'][0]['message'])
     def test_unsafe_url_and_invalid_body(self):
         for url in ['javascript:alert(1)','https://user:pass@example.com/a','file:///etc/passwd']:
             with self.assertRaises(ValueError):canonical_url(url)
