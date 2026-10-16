@@ -178,7 +178,7 @@
       "category": "官方网站",
       "type": "article",
       "url": "https://www.cgs.gov.cn/ywdt/ddyw/202505/t20250512_820403.html?radar_acceptance=1",
-      "enabled": true,
+      "enabled": false,
       "allowedHosts": [
         "www.cgs.gov.cn"
       ]
