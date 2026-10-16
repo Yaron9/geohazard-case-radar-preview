@@ -1,5 +1,5 @@
 import unittest
-from crawl import article_data, canonical_url, merge_feed, split_report
+from crawl import article_data, canonical_url, merge_feed, split_report, allowed_article_url, discovery_title
 from bs4 import BeautifulSoup
 
 class CollectorTests(unittest.TestCase):
@@ -27,6 +27,23 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(updated[0]['version'],2)
         self.assertEqual(updated[0]['history'][0]['body'],'原文')
         self.assertEqual(updated[0]['firstSeenAt'],'t1')
+    def test_local_media_titles_and_allowed_subdomains(self):
+        self.assertTrue(discovery_title('湖南通报年度十大转移避险避灾案例'))
+        self.assertTrue(discovery_title('发现山体裂缝，村民连夜撤离'))
+        self.assertTrue(discovery_title('巡查发现滑坡险情，及时组织转移'))
+        self.assertFalse(discovery_title('公告：地质灾害防治资质审批结果'))
+        source={'allowedHosts':['rednet.cn']}
+        self.assertTrue(allowed_article_url('https://moment.rednet.cn/a.html',source,'https://hn.rednet.cn/'))
+        self.assertFalse(allowed_article_url('https://rednet.cn.evil.example/a.html',source,'https://hn.rednet.cn/'))
+        self.assertFalse(allowed_article_url('https://other.example/a.html',source,'https://hn.rednet.cn/'))
+    def test_short_case_index_does_not_borrow_overall_numbers(self):
+        body='全省避免伤亡6590人次。\n1.长沙宁乡山体崩塌成功避险案例\n2.益阳安化山体滑坡成功避险案例\n来源：湖南日报'
+        article={'title':'湖南通报十大转移避险避灾案例','body':body,'url':'https://hn.rednet.cn/case.html','publishedAt':'2026-10-13','sourceId':'local','publisher':'红网','capturedAt':'t'}
+        records=split_report(article,'湖南')
+        self.assertEqual(len(records),2)
+        self.assertTrue(all(r['resourceKind']=='index-entry' for r in records))
+        self.assertTrue(all('6590' not in r['body'] for r in records))
+        self.assertTrue(all(not e['quote'] and not e['confirmed'] for r in records for e in r['evidence']))
     def test_unsafe_url_and_invalid_body(self):
         for url in ['javascript:alert(1)','https://user:pass@example.com/a','file:///etc/passwd']:
             with self.assertRaises(ValueError):canonical_url(url)

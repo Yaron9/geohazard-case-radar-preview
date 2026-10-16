@@ -15,9 +15,22 @@ from bs4 import BeautifulSoup
 
 HAZARDS = ['地面塌陷', '地面沉降', '地裂缝', '泥石流', '滑坡', '崩塌']
 REGIONS = ['福建', '湖北', '广西', '重庆', '陕西', '湖南', '四川', '云南', '西藏', '甘肃', '贵州', '浙江', '广东', '江西', '河南', '河北', '山西', '山东', '江苏', '安徽', '北京', '上海', '天津', '辽宁', '吉林', '黑龙江', '内蒙古', '青海', '宁夏', '新疆', '海南']
-BODY_SELECTORS = ['.TRS_Editor', '.TRS_UEDITOR', '#UCAP-CONTENT', '.pages_content', '#zoom', '.article-content', '.view-article', 'article', '.news_content', '.detail-content']
-EXCLUSIONS = re.compile(r'演练|会议|部署|检查|宣传活动|科普直播')
-DISCOVERY = re.compile(r'成功避险|成功避让|成功预警|提前.{0,5}(撤离|转移)|地质灾害.{0,8}避险|滑坡.{0,8}避险|崩塌.{0,8}预警')
+BODY_SELECTORS = ['.TRS_Editor', '.TRS_UEDITOR', '#UCAP-CONTENT', '.pages_content', '#zoom', '.article-content', '.view-article', 'section.detail_article_content', 'article', '.news_content', '.detail-content', '.zw_txt']
+EXCLUSIONS = re.compile(r'演练|会议|部署|宣传活动|科普直播|资质|审批|招标|采购|招聘')
+DISCOVERY = re.compile(r'成功避险|成功避让|成功预警|转移避险|避险避灾|紧急转移|紧急撤离|连夜撤离|提前.{0,5}(撤离|转移)|地质灾害.{0,8}避险|滑坡.{0,8}避险|崩塌.{0,8}预警')
+GEO_TOPIC = re.compile(r'地质灾害|地灾|滑坡|崩塌|泥石流|地面塌陷|地裂缝|地面沉降')
+ACTION_TOPIC = re.compile(r'转移|撤离|疏散|避让|预警|封控|巡查|监测|搬迁|治理')
+
+
+def discovery_title(title):
+    return not EXCLUSIONS.search(title) and bool(DISCOVERY.search(title) or (GEO_TOPIC.search(title) and ACTION_TOPIC.search(title)))
+
+
+def allowed_article_url(url, source, listing_url):
+    hostname = (urlsplit(url).hostname or '').lower()
+    allowed = source.get('allowedHosts') or [urlsplit(listing_url).hostname]
+    return any(hostname == host or hostname.endswith('.' + host) for host in allowed if host)
+
 
 
 def timestamp():
@@ -74,7 +87,7 @@ def article_data(soup, url, source):
         title = heading.get_text(' ', strip=True) if heading else soup.title.get_text(' ', strip=True) if soup.title else ''
     title = re.split(r'--中华人民共和国|_中国地质调查局', title)[0].strip()
     body = None
-    for selector in BODY_SELECTORS:
+    for selector in [*source.get('bodySelectors', []), *BODY_SELECTORS]:
         candidate = soup.select_one(selector)
         if candidate and len(candidate.get_text(strip=True)) >= 100:
             body = candidate
@@ -93,7 +106,11 @@ def article_data(soup, url, source):
         page_text = soup.get_text(' ', strip=True)
         date_match = re.search(r'(?:发布时间|发布日期|时间)[：:\s]*(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})', page_text)
     published = '-'.join([date_match[1], date_match[2].zfill(2), date_match[3].zfill(2)]) if date_match else ''
-    return {'title': title, 'url': url, 'publishedAt': published, 'body': text, 'publisher': source['publisher'], 'sourceId': source['id'], 'capturedAt': timestamp()}
+    credit = metadata(soup, ['source', 'content_source'])
+    if not credit:
+        match = re.search(r'(?:^|\n)来源[：:]\s*([^\n]{1,80})', text)
+        credit = re.split(r'编辑|责任编辑', match[1])[0].strip() if match else ''
+    return {'title': title, 'url': url, 'publishedAt': published, 'body': text, 'publisher': source['publisher'], 'sourceCredit': credit, 'sourceId': source['id'], 'capturedAt': timestamp()}
 
 
 def split_report(article, province='全国'):
@@ -103,16 +120,20 @@ def split_report(article, province='全国'):
     if len(headings) >= 2:
         for i, heading in enumerate(headings):
             section_body = body[heading.end():headings[i+1].start() if i+1 < len(headings) else len(body)].strip()
-            if len(section_body) >= 100:
-                sections.append((heading[2].strip(), section_body, int(heading[1])))
-    elif DISCOVERY.search(article['title']) and not EXCLUSIONS.search(article['title']):
+            sections.append((heading[2].strip(), section_body, int(heading[1])))
+    elif discovery_title(article['title']):
         # A notice merely listing many case names is an index, not a complete event.
         if not ('案例公布' in article['title'] and body.count('避险') > 7):
             sections.append((article['title'], body, 0))
     records = []
     for title, section, number in sections:
+        index_entry = bool(number and len(section.strip()) < 100)
+        if index_entry:
+            section = title
         hazard = next((h for h in HAZARDS if h in title), next((h for h in HAZARDS if h in section), ''))
         if not hazard:
+            continue
+        if not number and not (ACTION_TOPIC.search(section) or DISCOVERY.search(section)):
             continue
         region = next((p for p in REGIONS if p in title[:15]), province)
         event_date = re.search(r'(20\d{2})年\s*(\d{1,2})月\s*(\d{1,2})日', section[:250])
@@ -120,9 +141,9 @@ def split_report(article, province='全国'):
         sentences = [s.strip() for s in re.split(r'(?<=[。；])\s*|\n+', section) if len(s.strip()) > 8]
         evidence = []
         for label, pattern in [('风险发现', r'发现|预警|裂缝|异常|险情'), ('提前行动', r'转移|撤离|疏散|避让|封控'), ('风险验证', r'发生.{0,15}(滑坡|崩塌|泥石流)|滑坡发生|灾害发生|监测|调查'), ('避险成效', r'无.{0,8}伤亡|避免.{0,20}伤亡|成功避险')]:
-            quote = next((s for s in sentences if re.search(pattern, s)), '')
+            quote = '' if index_entry else next((s for s in sentences if re.search(pattern, s)), '')
             evidence.append({'label': label, 'quote': quote[:600], 'confirmed': False})
-        records.append({**article, 'id': 'live-' + digest(article['url'] + '::' + str(number))[:16], 'title': title, 'reportTitle': article['title'], 'body': section[:6000], 'summary': '\n'.join(sentences[:2])[:500], 'section': number, 'province': region, 'hazard': hazard, 'eventDate': event_date, 'evidence': evidence, 'fingerprint': digest(section), 'firstSeenAt': article['capturedAt'], 'version': 1})
+        records.append({**article, 'id': 'live-' + digest(article['url'] + '::' + str(number))[:16], 'title': title, 'reportTitle': article['title'], 'body': section[:6000], 'summary': f'名录线索：{title}。原报道只列案例名称，缺少个案处置与结果细节，需继续补证。' if index_entry else '\n'.join(sentences[:2])[:500], 'resourceKind': 'index-entry' if index_entry else 'report', 'section': number, 'province': region, 'hazard': hazard, 'eventDate': event_date, 'evidence': evidence, 'fingerprint': digest(section), 'firstSeenAt': article['capturedAt'], 'version': 1})
     return records
 
 
@@ -139,13 +160,13 @@ def crawl_source(source, archive):
         urls = []
         for anchor in soup.find_all('a', href=True):
             title = anchor.get('title') or anchor.get_text(' ', strip=True)
-            if not DISCOVERY.search(title) or EXCLUSIONS.search(title):
+            if not discovery_title(title):
                 continue
             try:
                 candidate = canonical_url(urljoin(effective, anchor['href']))
             except ValueError:
                 continue
-            if urlsplit(candidate).hostname != urlsplit(effective).hostname:
+            if not allowed_article_url(candidate, source, effective):
                 continue
             if candidate not in urls:
                 urls.append(candidate)
@@ -154,6 +175,8 @@ def crawl_source(source, archive):
         for url in urls:
             try:
                 article_soup, article_url, article_raw = fetch(url)
+                if not allowed_article_url(article_url, source, effective):
+                    raise RuntimeError('文章重定向超出登记媒体域名范围')
                 (archive / (digest(url)[:20] + '.html')).write_bytes(article_raw)
                 results.extend(split_report(article_data(article_soup, article_url, source), source['province']))
                 scanned += 1
@@ -207,7 +230,7 @@ def main():
     items, added, changed = merge_feed(previous, records)
     generated = timestamp()
     batch = {'id': 'crawl-' + generated, 'startedAt': min(r['startedAt'] for r in runs), 'finishedAt': generated, 'newRecords': added, 'changedRecords': changed, 'successfulSources': sum(r['status'] != 'failure' for r in runs), 'failedSources': sum(r['status'] == 'failure' for r in runs), 'results': sorted(runs, key=lambda r:r['sourceId'])}
-    feed = {'schema': 1, 'generatedAt': generated, 'lastSuccessAt': generated if records else previous.get('lastSuccessAt',''), 'scope': '登记来源的真实官方报道；汇编按原文逐案拆分，未经过人工案例认定', 'sources': sources, 'items': items, 'runs': [batch, *previous.get('runs', [])][:30]}
+    feed = {'schema': 1, 'generatedAt': generated, 'lastSuccessAt': generated if records else previous.get('lastSuccessAt',''), 'scope': '登记的部门发布、地方媒体与区县新闻；名录条目单列为待补证线索，未经过人工案例认定', 'sources': sources, 'items': items, 'runs': [batch, *previous.get('runs', [])][:30]}
     output.parent.mkdir(parents=True, exist_ok=True)
     temp = output.with_suffix('.tmp')
     temp.write_text(json.dumps(feed, ensure_ascii=False, indent=2) + '\n')
