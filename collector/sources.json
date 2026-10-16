@@ -1,17 +1,187 @@
 {
   "version": 1,
   "sources": [
-    {"id":"cgs-2024-cases","name":"中国地质调查局·2024年十大避险案例","publisher":"中国地质调查局（来源：中国自然资源报）","type":"article","province":"全国","url":"https://www.cgs.gov.cn/ywdt/ddyw/202505/t20250512_820403.html"},
-    {"id":"mem-xian","name":"应急管理部·西安崩塌预警报道","publisher":"中华人民共和国应急管理部","type":"article","province":"陕西","url":"https://www.mem.gov.cn/xw/gdyj/202303/t20230302_443868.shtml"},
-    {"id":"cgs-news","name":"中国地质调查局·地调要闻","publisher":"中国地质调查局","type":"listing","province":"全国","url":"https://www.cgs.gov.cn/ywdt/ddyw/","maxArticles":8},
-    {"id":"hunan-news","name":"湖南省自然资源厅·市县动态","publisher":"湖南省自然资源厅","type":"listing","province":"湖南","url":"https://zrzyt.hunan.gov.cn/xxgk/gzdt/sxxx/","maxArticles":8},
-    {"id":"sc-news","name":"四川省自然资源厅·公示公告","publisher":"四川省自然资源厅","type":"listing","province":"四川","url":"https://dnr.sc.gov.cn/scdnr/scgsgg/","maxArticles":6},
-    {"id":"rednet-hunan","name":"红网·湖南频道","publisher":"红网湖南频道","category":"地方媒体","type":"listing","province":"湖南","url":"https://hn.rednet.cn/","allowedHosts":["rednet.cn"],"bodySelectors":["section.detail_article_content","article.detail_article"],"maxArticles":8},
-    {"id":"scol-sichuan","name":"四川在线·四川新闻","publisher":"四川在线","category":"地方媒体","type":"listing","province":"四川","url":"https://sichuan.scol.com.cn/","allowedHosts":["scol.com.cn"],"bodySelectors":["#content",".article-content",".content-main"],"maxArticles":8},
-    {"id":"newssc-sichuan","name":"四川新闻网","publisher":"四川新闻网","category":"地方媒体","type":"listing","province":"四川","url":"https://www.newssc.org/","allowedHosts":["newssc.org"],"bodySelectors":["#content",".article-content",".content"],"maxArticles":8},
-    {"id":"cqnews-county","name":"华龙网·区县新闻","publisher":"华龙网","category":"地方媒体","level":"区县频道","type":"listing","province":"重庆","url":"https://www.cqnews.net/web/column/col11322.html","allowedHosts":["cqnews.net"],"bodySelectors":["#content",".article-content",".article-main"],"maxArticles":8},
-    {"id":"yunnan-local","name":"云南网·地方新闻","publisher":"云南网","category":"地方媒体","type":"listing","province":"云南","url":"https://www.yunnan.cn/","allowedHosts":["yunnan.cn"],"bodySelectors":["#artContent",".artContent",".article-content"],"maxArticles":8},
-    {"id":"cnhubei-local","name":"荆楚网·湖北日报网","publisher":"荆楚网","category":"地方媒体","type":"listing","province":"湖北","url":"https://www.cnhubei.com/","allowedHosts":["cnhubei.com"],"bodySelectors":["#content",".article-content",".article-content-box"],"maxArticles":8},
-    {"id":"fjsen-local","name":"东南网·福建地方新闻","publisher":"东南网","category":"地方媒体","type":"listing","province":"福建","url":"https://www.fjsen.com/","allowedHosts":["fjsen.com"],"bodySelectors":["#content",".zw_txt",".article-content"],"maxArticles":8}
+    {
+      "id": "cgs-2024-cases",
+      "name": "中国地质调查局·2024年十大避险案例",
+      "publisher": "中国地质调查局（来源：中国自然资源报）",
+      "type": "article",
+      "province": "全国",
+      "url": "https://www.cgs.gov.cn/ywdt/ddyw/202505/t20250512_820403.html"
+    },
+    {
+      "id": "mem-xian",
+      "name": "应急管理部·西安崩塌预警报道",
+      "publisher": "中华人民共和国应急管理部",
+      "type": "article",
+      "province": "陕西",
+      "url": "https://www.mem.gov.cn/xw/gdyj/202303/t20230302_443868.shtml"
+    },
+    {
+      "id": "cgs-news",
+      "name": "中国地质调查局·地调要闻",
+      "publisher": "中国地质调查局",
+      "type": "listing",
+      "province": "全国",
+      "url": "https://www.cgs.gov.cn/ywdt/ddyw/",
+      "maxArticles": 8
+    },
+    {
+      "id": "hunan-news",
+      "name": "湖南省自然资源厅·市县动态",
+      "publisher": "湖南省自然资源厅",
+      "type": "listing",
+      "province": "湖南",
+      "url": "https://zrzyt.hunan.gov.cn/xxgk/gzdt/sxxx/",
+      "maxArticles": 8
+    },
+    {
+      "id": "sc-news",
+      "name": "四川省自然资源厅·公示公告",
+      "publisher": "四川省自然资源厅",
+      "type": "listing",
+      "province": "四川",
+      "url": "https://dnr.sc.gov.cn/scdnr/scgsgg/",
+      "maxArticles": 6
+    },
+    {
+      "id": "rednet-hunan",
+      "name": "红网·湖南频道",
+      "publisher": "红网湖南频道",
+      "category": "地方媒体",
+      "type": "listing",
+      "province": "湖南",
+      "url": "https://hn.rednet.cn/",
+      "allowedHosts": [
+        "rednet.cn"
+      ],
+      "bodySelectors": [
+        "section.detail_article_content",
+        "article.detail_article"
+      ],
+      "maxArticles": 8
+    },
+    {
+      "id": "scol-sichuan",
+      "name": "四川在线·四川新闻",
+      "publisher": "四川在线",
+      "category": "地方媒体",
+      "type": "listing",
+      "province": "四川",
+      "url": "https://sichuan.scol.com.cn/",
+      "allowedHosts": [
+        "scol.com.cn"
+      ],
+      "bodySelectors": [
+        "#content",
+        ".article-content",
+        ".content-main"
+      ],
+      "maxArticles": 8
+    },
+    {
+      "id": "newssc-sichuan",
+      "name": "四川新闻网",
+      "publisher": "四川新闻网",
+      "category": "地方媒体",
+      "type": "listing",
+      "province": "四川",
+      "url": "https://www.newssc.org/",
+      "allowedHosts": [
+        "newssc.org"
+      ],
+      "bodySelectors": [
+        "#content",
+        ".article-content",
+        ".content"
+      ],
+      "maxArticles": 8
+    },
+    {
+      "id": "cqnews-county",
+      "name": "华龙网·区县新闻",
+      "publisher": "华龙网",
+      "category": "地方媒体",
+      "level": "区县频道",
+      "type": "listing",
+      "province": "重庆",
+      "url": "https://www.cqnews.net/web/column/col11322.html",
+      "allowedHosts": [
+        "cqnews.net"
+      ],
+      "bodySelectors": [
+        "#content",
+        ".article-content",
+        ".article-main"
+      ],
+      "maxArticles": 8
+    },
+    {
+      "id": "yunnan-local",
+      "name": "云南网·地方新闻",
+      "publisher": "云南网",
+      "category": "地方媒体",
+      "type": "listing",
+      "province": "云南",
+      "url": "https://www.yunnan.cn/",
+      "allowedHosts": [
+        "yunnan.cn"
+      ],
+      "bodySelectors": [
+        "#artContent",
+        ".artContent",
+        ".article-content"
+      ],
+      "maxArticles": 8
+    },
+    {
+      "id": "cnhubei-local",
+      "name": "荆楚网·湖北日报网",
+      "publisher": "荆楚网",
+      "category": "地方媒体",
+      "type": "listing",
+      "province": "湖北",
+      "url": "https://www.cnhubei.com/",
+      "allowedHosts": [
+        "cnhubei.com"
+      ],
+      "bodySelectors": [
+        "#content",
+        ".article-content",
+        ".article-content-box"
+      ],
+      "maxArticles": 8
+    },
+    {
+      "id": "fjsen-local",
+      "name": "东南网·福建地方新闻",
+      "publisher": "东南网",
+      "category": "地方媒体",
+      "type": "listing",
+      "province": "福建",
+      "url": "https://www.fjsen.com/",
+      "allowedHosts": [
+        "fjsen.com"
+      ],
+      "bodySelectors": [
+        "#content",
+        ".zw_txt",
+        ".article-content"
+      ],
+      "maxArticles": 8
+    },
+    {
+      "id": "source-6b672e1c-29e7-411c-93ed-a971e60812eb",
+      "name": "验收临时来源·地调局原文",
+      "publisher": "中国地质调查局",
+      "province": "全国",
+      "category": "官方网站",
+      "type": "article",
+      "url": "https://www.cgs.gov.cn/ywdt/ddyw/202505/t20250512_820403.html?radar_acceptance=1",
+      "enabled": false,
+      "allowedHosts": [
+        "www.cgs.gov.cn"
+      ]
+    }
   ]
 }
