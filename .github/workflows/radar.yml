@@ -1,0 +1,49 @@
+name: Collect real geohazard reports
+on:
+  schedule:
+    - cron: '37 0 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: real-radar-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r collector/requirements.txt
+      - run: python -m unittest discover -s collector -p 'test_*.py'
+      - name: Fetch official source pages and preserve incremental state
+        run: python collector/crawl.py --output data/live-feed.json
+      - name: Persist real feed for Web readers
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/live-feed.json
+          if git diff --cached --quiet; then
+            echo 'No feed change.'
+          else
+            git commit -m 'Update real geohazard report feed'
+            git pull --rebase origin main
+            git push origin main
+          fi
+      - name: Summarize actual source results
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          f=json.load(open('data/live-feed.json'))
+          r=f['runs'][0]
+          print('# Real collection result')
+          print(f"Retained reports: {len(f['items'])}; new: {r['newRecords']}; changed: {r['changedRecords']}")
+          for s in r['results']:
+              print(f"- {s['name']}: {s['status']} / HTTP {s['httpStatus']} / {s['recordsFound']} candidates")
+          print('Candidate reports require manual case verification. Failed sources are retained explicitly.')
+          PY

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "sources": [
+    {"id":"cgs-2024-cases","name":"中国地质调查局·2024年十大避险案例","publisher":"中国地质调查局（来源：中国自然资源报）","type":"article","province":"全国","url":"https://www.cgs.gov.cn/ywdt/ddyw/202505/t20250512_820403.html"},
+    {"id":"mem-xian","name":"应急管理部·西安崩塌预警报道","publisher":"中华人民共和国应急管理部","type":"article","province":"陕西","url":"https://www.mem.gov.cn/xw/gdyj/202303/t20230302_443868.shtml"},
+    {"id":"cgs-news","name":"中国地质调查局·地调要闻","publisher":"中国地质调查局","type":"listing","province":"全国","url":"https://www.cgs.gov.cn/ywdt/ddyw/","maxArticles":8},
+    {"id":"hunan-news","name":"湖南省自然资源厅·市县动态","publisher":"湖南省自然资源厅","type":"listing","province":"湖南","url":"https://zrzyt.hunan.gov.cn/xxgk/gzdt/sxxx/","maxArticles":8},
+    {"id":"sc-news","name":"四川省自然资源厅·公示公告","publisher":"四川省自然资源厅","type":"listing","province":"四川","url":"https://dnr.sc.gov.cn/scdnr/scgsgg/","maxArticles":6}
+  ]
+}
