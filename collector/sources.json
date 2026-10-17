@@ -183,6 +183,24 @@
       "allowedHosts": [
         "zrzy.guizhou.gov.cn"
       ]
+    },
+    {
+      "id": "chinanews-society-rss",
+      "name": "中新网·社会新闻订阅",
+      "publisher": "中国新闻网",
+      "province": "全国",
+      "category": "中央媒体",
+      "type": "rss",
+      "url": "https://www.chinanews.com.cn/rss/society.xml",
+      "enabled": true,
+      "pendingAdapter": false,
+      "keywords": [
+        "地质灾害",
+        "滑坡",
+        "泥石流",
+        "崩塌",
+        "避险"
+      ]
     }
   ]
 }
