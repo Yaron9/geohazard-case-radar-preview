@@ -237,7 +237,9 @@ def crawl_rss(source, archive):
         title = entry.findtext('title') or entry.findtext('{http://www.w3.org/2005/Atom}title') or ''
         link = entry.findtext('link')
         if not link:
-            atom = entry.find('{http://www.w3.org/2005/Atom}link')
+            atom = next((node for node in entry.findall('{http://www.w3.org/2005/Atom}link')
+                         if node.get('rel', 'alternate') == 'alternate'
+                         and node.get('type', 'text/html') in ['text/html', 'application/xhtml+xml']), None)
             link = atom.get('href') if atom is not None else ''
         if link and discovery_title(title):
             candidate = canonical_url(urljoin(effective, link))

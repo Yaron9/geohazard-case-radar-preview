@@ -65,6 +65,12 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(records[0]['url'],'https://county.example.org/report.html')
         self.assertEqual(records[0]['publisher'],'county.example.org')
         self.assertEqual(run['pagesScanned'],2)
+    def test_atom_uses_html_alternate_instead_of_xml_self_link(self):
+        raw='''<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>发现滑坡裂缝，组织群众转移</title><link rel="self" type="application/atom+xml" href="https://county.example.org/entry.xml"/><link rel="alternate" type="text/html" href="https://county.example.org/report.html"/></entry></feed>'''.encode()
+        source={'id':'atom','name':'Atom','type':'rss','url':'https://feeds.example.org/atom','publisher':'','province':'全国'}
+        with tempfile.TemporaryDirectory() as directory,patch('crawl.fetch',return_value=(None,source['url'],raw)),patch('crawl.linked_reports',return_value=([],{})) as reports:
+            crawl_rss(source,Path(directory))
+        self.assertEqual(reports.call_args.args[1],[('https://county.example.org/report.html','发现滑坡裂缝，组织群众转移')])
     def test_search_irrelevant_results_remain_visible_and_do_not_become_reports(self):
         raw=b'<rss><channel><item><title>Unrelated news</title><link>https://example.org/unrelated</link></item></channel></rss>'
         source={'id':'web-discovery','name':'Search','type':'search','url':'https://www.bing.com/search?q=test','query':'地质灾害 成功避险'}
