@@ -169,6 +169,20 @@
         ".article-content"
       ],
       "maxArticles": 8
+    },
+    {
+      "id": "suggest-904d74b806b9",
+      "name": "贵州省自然资源厅",
+      "publisher": "贵州省自然资源厅",
+      "category": "官方网站",
+      "type": "listing",
+      "url": "https://zrzy.guizhou.gov.cn/wzgb/xwzx/xtyw1/",
+      "province": "贵州",
+      "enabled": true,
+      "pendingAdapter": false,
+      "allowedHosts": [
+        "zrzy.guizhou.gov.cn"
+      ]
     }
   ]
 }
