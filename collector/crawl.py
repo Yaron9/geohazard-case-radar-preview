@@ -153,7 +153,9 @@ def crawl_source(source, archive):
     if source['type'] == 'search':
         return crawl_search(source, archive)
     if source['type'] == 'rss':
-        return crawl_rss(source, archive)
+        return crawl_trendradar_rss(source, archive)
+    from trendradar_bridge import matches
+    keyword_match = lambda title: matches(title, source.get('keywords', ['地质灾害','地灾','滑坡','崩塌','泥石流','塌陷','地裂缝','地面沉降','避险']))
     started = timestamp()
     results, failures = [], []
     soup, effective, raw = fetch(source['url'])
@@ -166,7 +168,7 @@ def crawl_source(source, archive):
         urls = []
         for anchor in soup.find_all('a', href=True):
             title = anchor.get('title') or anchor.get_text(' ', strip=True)
-            if not discovery_title(title):
+            if not discovery_title(title) or not keyword_match(title):
                 continue
             try:
                 candidate = canonical_url(urljoin(effective, anchor['href']))
@@ -250,6 +252,16 @@ def crawl_rss(source, archive):
     return linked_reports(source, links, archive, started)
 
 
+def crawl_trendradar_rss(source, archive):
+    from trendradar_bridge import fetch_rss, matches
+    started = timestamp()
+    links = [(url, title) for url, title in fetch_rss(source)
+             if discovery_title(title) and matches(title, source.get('keywords', []))]
+    records, run = linked_reports(source, links, archive, started)
+    run['engine'] = 'TrendRadar RSSFetcher'
+    return records, run
+
+
 def crawl_search(source, archive):
     started = timestamp()
     query = source['query']
@@ -266,26 +278,17 @@ def crawl_search(source, archive):
         links = [(canonical_url(i['url']), i.get('title', '')) for i in data.get('results', []) if i.get('url') and (discovery_title(i.get('title', '')) or GEO_TOPIC.search(i.get('content', '')))]
         provider = 'Tavily'
     else:
-        search_url = 'https://www.bing.com/search?' + urlencode({'q': query, 'format': 'rss'})
-        _, _, raw = fetch(search_url)
-        root = ET.fromstring(raw)
-        links = []
-        for entry in root.findall('.//item'):
-            title = entry.findtext('title') or ''
-            description = entry.findtext('description') or ''
-            link = entry.findtext('link') or ''
-            if link and (discovery_title(title) or (GEO_TOPIC.search(title + description) and ACTION_TOPIC.search(title + description))):
-                candidate = canonical_url(link)
-                if candidate not in [u for u, _ in links]:
-                    links.append((candidate, title))
-        provider = 'Bing公开搜索RSS'
+        from web_search import discover
+        links, traces = discover(query, fetch, discovery_title)
+        provider = 'Web search（DuckDuckGo / 搜狗）'
     records, run = linked_reports(source, links, archive, started)
+    run['queries'] = traces if not key else [{'provider': provider, 'query': query, 'status': 'success', 'relevant': len(links)}]
     run['searchQuery'] = query
     run['searchProvider'] = provider
     run['discoveredLinks'] = len(links)
-    if not links:
+    if not links or any(t['status'] != 'success' for t in run['queries']):
         run['status'] = 'partial'
-        run['failures'].append({'url': source['url'], 'message': f'{provider}未返回可核验的地灾相关链接；本次不能据此声称完成全网覆盖，来源扫描独立继续。'})
+        run['failures'].append({'url': source['url'], 'message': f'{provider}部分查询受限或未返回可核验链接；不能据此声称完成全网覆盖。'})
     return records, run
 
 
@@ -303,7 +306,7 @@ def main():
     records, runs = [], []
     sources = [source for source in config['sources'] if source.get('enabled', True)]
     if args.mode == 'all':
-        sources.insert(0, {'id': 'web-discovery', 'name': '公开网页搜索发现', 'publisher': '搜索发现（发布机构待核验）', 'category': '搜索发现', 'type': 'search', 'province': '全国', 'url': 'https://www.bing.com/search?' + urlencode({'q': args.query}), 'query': args.query, 'maxArticles': 8})
+        sources.insert(0, {'id': 'web-discovery', 'name': '公开网页搜索发现', 'publisher': '搜索发现（发布机构待核验）', 'category': '搜索发现', 'type': 'search', 'province': '全国', 'url': 'https://html.duckduckgo.com/html/?' + urlencode({'q': args.query}), 'query': args.query, 'maxArticles': 24})
     if not sources:
         raise SystemExit('没有启用的数据源，未执行空扫描')
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
@@ -318,10 +321,12 @@ def main():
                 run = {'sourceId': source['id'], 'name': source['name'], 'url': source['url'], 'startedAt': timestamp(), 'finishedAt': timestamp(), 'status': 'failure', 'httpStatus': int(match[1]) if match else 0, 'pagesScanned': 0, 'recordsFound': 0, 'failures': [{'url': source['url'], 'message': str(exc)}]}
             runs.append(run)
             print(json.dumps(run, ensure_ascii=False), flush=True)
+    from source_suggestions import suggest_sources
+    suggestions = suggest_sources([r for r in records if r['sourceId'] == 'web-discovery'], config['sources'], fetch, discovery_title, verify_article=lambda soup,url: bool(article_data(soup,url,{'publisher':'待核验','id':'probe'}))) if args.mode == 'all' else previous.get('sourceSuggestions', [])
     items, added, changed = merge_feed(previous, records)
     generated = timestamp()
     batch = {'id': 'crawl-' + generated, 'startedAt': min(r['startedAt'] for r in runs), 'finishedAt': generated, 'query': args.query, 'mode': args.mode, 'newRecords': added, 'changedRecords': changed, 'successfulSources': sum(r['status'] != 'failure' for r in runs), 'failedSources': sum(r['status'] == 'failure' for r in runs), 'results': sorted(runs, key=lambda r:r['sourceId'])}
-    feed = {'schema': 1, 'generatedAt': generated, 'lastSuccessAt': generated if records else previous.get('lastSuccessAt',''), 'scope': '登记的部门发布、地方媒体与区县新闻；名录条目单列为待补证线索，未经过人工案例认定', 'sources': sources, 'items': items, 'runs': [batch, *previous.get('runs', [])][:30]}
+    feed = {'schema': 1, 'generatedAt': generated, 'lastSuccessAt': generated if records else previous.get('lastSuccessAt',''), 'scope': '搜索引擎公开检索与TrendRadar/网页来源监测；名录条目单列为待补证线索，未经过人工案例认定', 'sourceSuggestions': suggestions, 'sources': sources, 'items': items, 'runs': [batch, *previous.get('runs', [])][:30]}
     output.parent.mkdir(parents=True, exist_ok=True)
     temp = output.with_suffix('.tmp')
     temp.write_text(json.dumps(feed, ensure_ascii=False, indent=2) + '\n')

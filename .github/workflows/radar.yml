@@ -37,6 +37,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r collector/requirements.txt
+      - name: Install pinned TrendRadar upstream
+        run: python collector/setup_trendradar.py
       - run: python -m unittest discover -s collector -p 'test_*.py'
       - name: Run public search discovery and configured sources
         env:
