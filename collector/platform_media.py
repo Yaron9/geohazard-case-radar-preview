@@ -65,7 +65,10 @@ def read_wechat(url):
         name=account.get_text(' ',strip=True) if account else ''
         article=article_data(soup,effective,{'id':'wechat-discovery','publisher':name or '公众号主体待核验','bodySelectors':['#js_content']})
         published=soup.select_one('#publish_time')
-        return {**article,'url':canonical_media_url(effective),'media':{'platform':'wechat','accountName':name,'publishedText':published.get_text(' ',strip=True) if published else '','textStatus':'full','reader':'public-html'}}
+        published_text=published.get_text(' ',strip=True) if published else ''
+        match=re.search(r'(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})',published_text)
+        if match and not article['publishedAt']:article['publishedAt']='-'.join([match[1],match[2].zfill(2),match[3].zfill(2)])
+        return {**article,'url':canonical_media_url(effective),'media':{'platform':'wechat','accountName':name,'publishedText':published_text,'textStatus':'full','reader':'public-html'}}
     except Exception as error:
         failures.append(str(error))
     request={'operation':'wechat','url':url}
@@ -160,7 +163,7 @@ def read_video(url):
         def debug(self,message):pass
         def warning(self,message):pass
         def error(self,message):pass
-    options={'quiet':True,'no_warnings':True,'skip_download':True,'noplaylist':True,'socket_timeout':12,'retries':0,'extractor_retries':0,'logger':QuietLogger()}
+    options={'quiet':True,'no_warnings':True,'skip_download':True,'writesubtitles':True,'writeautomaticsub':True,'ignore_no_formats_error':True,'noplaylist':True,'socket_timeout':12,'retries':0,'extractor_retries':0,'logger':QuietLogger()}
     try:
         with yt_dlp.YoutubeDL(options) as downloader:
             info=downloader.extract_info(url,download=False)
@@ -183,7 +186,9 @@ def read_video(url):
             for item in formats[:2]:
                 if item.get('ext') not in ['json3','vtt','srt']:continue
                 try:
-                    _,_,raw=fetch(item['url']);segments=parse_captions(raw,item['ext'])
+                    if item.get('data') is not None:raw=item['data']
+                    else:_,_,raw=fetch(item['url'])
+                    segments=parse_captions(raw,item['ext'])
                     if segments:caption_status='platform-caption' if field=='subtitles' else 'automatic-caption';language=lang;break
                 except Exception as error:caption_errors.append(str(error)[:160])
             if segments:break
@@ -240,17 +245,17 @@ def article_records(article,source,lead=False):
     prepared={**article,'sourceId':source['id'],'reportTitle':title}
     if not lead:
         records=split_report(prepared,source.get('province','全国'))
-        if records:return [{**r,'media':article.get('media')} for r in records]
+        if records:return [{**r,'media':article.get('media'),'fingerprint':digest(r['body']+'\n'+json.dumps(article.get('media') or {},ensure_ascii=False,sort_keys=True))} for r in records]
     hazard=next((h for h in HAZARDS if h in title+' '+text),'')
     body=text or f'媒体检索线索：{title}。尚未取得可核验正文或字幕，不据此确认人数、伤亡或处置成效。'
     resource='article-lead' if article.get('media',{}).get('platform')=='wechat' else 'video-lead'
-    return [{**prepared,'id':'live-'+digest(article['url']+'::0')[:16],'body':body[:6000],'summary':('待补证线索：'+title+'；未取得正文或字幕。') if lead else body[:400],'resourceKind':resource if lead else 'report','section':0,'province':source.get('province','全国'),'hazard':hazard,'eventDate':'','fingerprint':digest(body),'firstSeenAt':article['capturedAt'],'version':1,'evidence':[{'label':label,'quote':'','confirmed':False} for label in ['风险发现','提前行动','风险验证','避险成效']]}]
+    return [{**prepared,'id':'live-'+digest(article['url']+'::0')[:16],'body':body[:6000],'summary':('待补证线索：'+title+'；未取得正文或字幕。') if lead else body[:400],'resourceKind':resource if lead else 'report','section':0,'province':source.get('province','全国'),'hazard':hazard,'eventDate':'','fingerprint':digest(body+'\n'+json.dumps(article.get('media') or {},ensure_ascii=False,sort_keys=True)),'firstSeenAt':article['capturedAt'],'version':1,'evidence':[{'label':label,'quote':'','confirmed':False} for label in ['风险发现','提前行动','风险验证','避险成效']]}]
 
 
 def source_suggestion(article):
     media=article.get('media',{});platform=media.get('platform');query=media.get('accountName') or article['title']
     kind='wechat-search' if platform=='wechat' else 'video-search'
-    url=('https://weixin.sogou.com/weixin?' if platform=='wechat' else 'https://www.sogou.com/web?')+urlencode({'query':query,**({'type':'2'} if platform=='wechat' else {})})
+    url=('https://weixin.sogou.com/weixin?' if platform=='wechat' else 'https://www.sogou.com/web?')+urlencode({'query':query,**({'type':'2'} if platform=='wechat' else {'platform':platform or 'all'})})
     sid='media-rule-'+hashlib.sha256((kind+url).encode()).hexdigest()[:12]
     return {'id':sid,'status':'ready','reason':'添加为关键词检索规则，持续发现公开材料；不代表账号全量订阅。','evidenceUrl':article['url'],'evidenceTitle':article['title'],'source':{'id':sid,'name':('公众号' if platform=='wechat' else '视频')+'检索·'+query[:40],'publisher':media.get('accountName') or '待核验','category':'微信公众号' if platform=='wechat' else '短视频','type':kind,'url':url,'query':query,'videoPlatform':platform if platform in ['douyin','bilibili','youtube'] else 'all','province':'全国','enabled':True,'pendingAdapter':False}}
 
