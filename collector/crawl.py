@@ -150,6 +150,9 @@ def split_report(article, province='全国'):
 
 
 def crawl_source(source, archive):
+    if source['type'] in ['wechat','wechat-search','video','video-search']:
+        from platform_media import collect_platform
+        return collect_platform(source)
     if source['type'] == 'search':
         return crawl_search(source, archive)
     if source['type'] == 'rss':
@@ -203,7 +206,7 @@ def merge_feed(previous, records):
             record['version'] = old.get('version', 1)
             record['history'] = old.get('history', [])
             if old['fingerprint'] != record['fingerprint']:
-                record['history'] = [*record['history'], {k: old[k] for k in ['version','fingerprint','body','capturedAt']}][-10:]
+                record['history'] = [*record['history'], {k: old[k] for k in ['version','fingerprint','body','capturedAt']} | ({'media':old['media']} if old.get('media') else {})][-10:]
                 record['version'] += 1
                 changed += 1
         else:
@@ -300,6 +303,7 @@ def main():
     parser.add_argument('--archive', default='work/crawl/raw')
     parser.add_argument('--mode', choices=['all', 'sources'], default=os.environ.get('RADAR_MODE', 'sources'))
     parser.add_argument('--query', default=os.environ.get('RADAR_QUERY', '地质灾害 成功避险'))
+    parser.add_argument('--channels', default=os.environ.get('RADAR_CHANNELS','web,wechat,video'))
     args = parser.parse_args()
     config = json.loads(Path(args.sources).read_text())
     output = Path(args.output)
@@ -307,7 +311,11 @@ def main():
     records, runs = [], []
     sources = [source for source in config['sources'] if source.get('enabled', True)]
     if args.mode == 'all':
-        sources.insert(0, {'id': 'web-discovery', 'name': '公开网页搜索发现', 'publisher': '搜索发现（发布机构待核验）', 'category': '搜索发现', 'type': 'search', 'province': '全国', 'url': 'https://html.duckduckgo.com/html/?' + urlencode({'q': args.query}), 'query': args.query, 'maxArticles': 24})
+        channels=[channel.strip() for channel in args.channels.split(',') if channel.strip()]
+        if not channels or any(channel not in ['web','wechat','video'] for channel in channels):raise ValueError('至少选择一个有效检索渠道，且不可含未知渠道')
+        if 'web' in channels:sources.insert(0, {'id': 'web-discovery', 'name': '公开网页搜索发现', 'publisher': '搜索发现（发布机构待核验）', 'category': '搜索发现', 'type': 'search', 'province': '全国', 'url': 'https://html.duckduckgo.com/html/?' + urlencode({'q': args.query}), 'query': args.query, 'maxArticles': 24})
+        if 'wechat' in channels:sources.insert(0,{'id':'wechat-discovery','name':'公众号主动检索','publisher':'搜索发现（账号待核验）','category':'微信公众号','type':'wechat-search','province':'全国','url':'https://weixin.sogou.com/weixin?'+urlencode({'query':args.query,'type':'2'}),'query':args.query,'maxArticles':3})
+        if 'video' in channels:sources.insert(0,{'id':'video-discovery','name':'短视频主动检索','publisher':'视频发现（作者待核验）','category':'短视频','type':'video-search','province':'全国','url':'https://www.sogou.com/web?'+urlencode({'query':args.query+' 视频'}),'query':args.query,'videoPlatform':'all','maxArticles':3})
     if not sources:
         raise SystemExit('没有启用的数据源，未执行空扫描')
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
@@ -324,6 +332,8 @@ def main():
             print(json.dumps(run, ensure_ascii=False), flush=True)
     from source_suggestions import suggest_sources
     suggestions = suggest_sources([r for r in records if r['sourceId'] == 'web-discovery'], config['sources'], fetch, discovery_title, verify_article=lambda soup,url: bool(article_data(soup,url,{'publisher':'待核验','id':'probe'}))) if args.mode == 'all' else previous.get('sourceSuggestions', [])
+    for run in runs:suggestions.extend(run.get('sourceSuggestions',[]))
+    suggestions=list({suggestion['id']:suggestion for suggestion in suggestions}.values())
     items, added, changed = merge_feed(previous, records)
     generated = timestamp()
     batch = {'id': 'crawl-' + generated, 'startedAt': min(r['startedAt'] for r in runs), 'finishedAt': generated, 'query': args.query, 'mode': args.mode, 'newRecords': added, 'changedRecords': changed, 'successfulSources': sum(r['status'] != 'failure' for r in runs), 'failedSources': sum(r['status'] == 'failure' for r in runs), 'results': sorted(runs, key=lambda r:r['sourceId'])}

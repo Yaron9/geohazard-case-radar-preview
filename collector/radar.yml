@@ -14,6 +14,11 @@ on:
         required: false
         default: '地质灾害 成功避险'
         type: string
+      channels:
+        description: '主动检索渠道，逗号分隔：web,wechat,video'
+        required: false
+        default: 'web,wechat,video'
+        type: string
       mode:
         description: 'all=搜索发现+来源扫描，sources=仅来源'
         required: false
@@ -37,6 +42,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r collector/requirements.txt
+      - name: Install platform media browser
+        run: python collector/setup_platforms.py
       - name: Install pinned TrendRadar upstream
         run: |
           python collector/setup_trendradar.py
@@ -45,6 +52,7 @@ jobs:
       - name: Run public search discovery and configured sources
         env:
           RADAR_QUERY: ${{ github.event.inputs.query || '地质灾害 成功避险' }}
+          RADAR_CHANNELS: ${{ github.event.inputs.channels || 'web,wechat,video' }}
           RADAR_MODE: ${{ github.event.inputs.mode || 'all' }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: python collector/crawl.py --output data/live-feed.json
