@@ -227,6 +227,21 @@
       "allowedHosts": [
         "weixin.sogou.com"
       ]
+    },
+    {
+      "id": "source-f75fb0a1-a6bf-49ca-a552-376389c4decb",
+      "name": "地灾短视频关键词监测",
+      "publisher": "",
+      "province": "",
+      "category": "短视频",
+      "type": "video-search",
+      "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%20%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9",
+      "enabled": true,
+      "query": "地质灾害 成功避险",
+      "videoPlatform": "all",
+      "allowedHosts": [
+        "www.sogou.com"
+      ]
     }
   ]
 }
