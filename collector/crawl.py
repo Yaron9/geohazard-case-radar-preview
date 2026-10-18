@@ -155,7 +155,7 @@ def crawl_source(source, archive):
     if source['type'] == 'rss':
         return crawl_trendradar_rss(source, archive)
     from trendradar_bridge import matches
-    keyword_match = lambda title: matches(title, source.get('keywords', ['地质灾害','地灾','滑坡','崩塌','泥石流','塌陷','地裂缝','地面沉降','避险']))
+    keyword_match = lambda title: matches(title, source.get('keywords', []))
     started = timestamp()
     results, failures = [], []
     soup, effective, raw = fetch(source['url'])
@@ -257,6 +257,7 @@ def crawl_trendradar_rss(source, archive):
     started = timestamp()
     links = [(url, title) for url, title in fetch_rss(source)
              if discovery_title(title) and matches(title, source.get('keywords', []))]
+    links = links[:source.get('maxArticles',24)]
     records, run = linked_reports(source, links, archive, started)
     run['engine'] = 'TrendRadar RSSFetcher'
     return records, run

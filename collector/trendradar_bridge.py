@@ -24,7 +24,7 @@ def modules():
 
 def fetch_rss(source):
     Fetcher, Config, _ = modules()
-    config = Config(id=source['id'], name=source['name'], url=source['url'], max_items=24)
+    config = Config(id=source['id'], name=source['name'], url=source['url'], max_items=0)
     fetcher = Fetcher([config], timeout=20, freshness_enabled=False)
     try:
         items, error = fetcher.fetch_feed(config)
@@ -36,7 +36,5 @@ def fetch_rss(source):
 
 
 def matches(title, keywords):
-    if not keywords:
-        return True
     _, _, matcher = modules()
-    return matcher(title, [{'required': [], 'normal': keywords}], [])
+    return matcher(title, [{'required': [], 'normal': keywords}] if keywords else [], [])

@@ -61,5 +61,36 @@ class DiscoveryTests(unittest.TestCase):
         self.assertEqual(result[0]['source']['type'], 'listing')
 
 
+    def test_unverified_channels_on_same_host_are_not_merged(self):
+        reports = [{'url': f'https://county.example/{channel}/report.html', 'title': '滑坡成功避险'} for channel in ['a', 'b']]
+        result = suggest_sources(reports, [], Mock(side_effect=RuntimeError('unavailable')), lambda _: True)
+        self.assertEqual(len(result), 2)
+        self.assertNotEqual(result[0]['source']['id'], result[1]['source']['id'])
+
+    def test_listing_does_not_add_implicit_keyword_requirements(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        from crawl import crawl_source
+        title='发现山体裂缝，村民连夜撤离'
+        article=page('<h1>'+title+'</h1><article>'+('发现滑坡裂缝后组织群众转移，无人员伤亡。'*10)+'</article>')
+        listing=page('<a href="/report.html">'+title+'</a>')
+        source={'id':'s','name':'s','publisher':'s','type':'listing','url':'https://county.example/','province':'全国'}
+        matcher=lambda title,keywords: not keywords or any(k in title for k in keywords)
+        with tempfile.TemporaryDirectory() as directory, patch('crawl.fetch', side_effect=[(listing,source['url'],b'listing'),(article,'https://county.example/report.html',b'article')]), patch('trendradar_bridge.matches',side_effect=matcher):
+            records, _=crawl_source(source,Path(directory))
+        self.assertEqual(len(records),1)
+
+    def test_rss_applies_record_limit_after_keyword_filter(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        from crawl import crawl_trendradar_rss
+        links=[(f'https://county.example/{i}', '普通新闻') for i in range(24)]+[('https://county.example/25','滑坡提前撤离')]
+        with tempfile.TemporaryDirectory() as directory, patch('trendradar_bridge.fetch_rss',return_value=links), patch('trendradar_bridge.matches',return_value=True), patch('crawl.linked_reports',return_value=([],{})) as reports:
+            crawl_trendradar_rss({'id':'s','maxArticles':1},Path(directory))
+        self.assertEqual(reports.call_args.args[1],[('https://county.example/25','滑坡提前撤离')])
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -16,9 +16,10 @@ def suggest_sources(records, sources, fetch, relevant, limit=4, verify_article=N
     for report in records:
         p = urlsplit(report['url'])
         root = f'{p.scheme}://{p.netloc}/'
-        if root in seen:
+        report_key = identity(report['url'])
+        if report_key in seen:
             continue
-        seen.add(root)
+        seen.add(report_key)
         if len(suggestions) >= limit:
             break
         # A site's home page is a fallback candidate, never a proven channel by domain alone.
