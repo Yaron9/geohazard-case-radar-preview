@@ -17,7 +17,7 @@ on:
       channels:
         description: '主动检索渠道，逗号分隔：web,wechat,video'
         required: false
-        default: 'web,wechat,video'
+        default: 'web'
         type: string
       mode:
         description: 'all=搜索发现+来源扫描，sources=仅来源'
@@ -52,7 +52,7 @@ jobs:
       - name: Run public search discovery and configured sources
         env:
           RADAR_QUERY: ${{ github.event.inputs.query || '地质灾害 成功避险' }}
-          RADAR_CHANNELS: ${{ github.event.inputs.channels || 'web,wechat,video' }}
+          RADAR_CHANNELS: ${{ github.event.inputs.channels || 'web' }}
           RADAR_MODE: ${{ github.event.inputs.mode || 'all' }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: python collector/crawl.py --output data/live-feed.json

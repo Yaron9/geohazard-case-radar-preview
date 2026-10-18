@@ -296,6 +296,13 @@ def crawl_search(source, archive):
     return records, run
 
 
+def source_channel(source):
+    kind=source.get('type','')
+    if kind.startswith('wechat') or source.get('category')=='微信公众号':return 'wechat'
+    if kind.startswith('video') or source.get('category')=='短视频':return 'video'
+    return 'web'
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--sources', default='collector/sources.json')
@@ -303,19 +310,19 @@ def main():
     parser.add_argument('--archive', default='work/crawl/raw')
     parser.add_argument('--mode', choices=['all', 'sources'], default=os.environ.get('RADAR_MODE', 'sources'))
     parser.add_argument('--query', default=os.environ.get('RADAR_QUERY', '地质灾害 成功避险'))
-    parser.add_argument('--channels', default=os.environ.get('RADAR_CHANNELS','web,wechat,video'))
+    parser.add_argument('--channels', default=os.environ.get('RADAR_CHANNELS','web'))
     args = parser.parse_args()
     config = json.loads(Path(args.sources).read_text())
     output = Path(args.output)
     previous = json.loads(output.read_text()) if output.exists() else {'items': [], 'runs': []}
     records, runs = [], []
-    sources = [source for source in config['sources'] if source.get('enabled', True)]
+    channels=[channel.strip() for channel in args.channels.split(',') if channel.strip()]
+    if not channels or any(channel not in ['web','wechat','video'] for channel in channels):raise ValueError('至少选择一个有效检索渠道，且不可含未知渠道')
+    sources = [source for source in config['sources'] if source.get('enabled', True) and source_channel(source) in channels]
     if args.mode == 'all':
-        channels=[channel.strip() for channel in args.channels.split(',') if channel.strip()]
-        if not channels or any(channel not in ['web','wechat','video'] for channel in channels):raise ValueError('至少选择一个有效检索渠道，且不可含未知渠道')
         if 'web' in channels:sources.insert(0, {'id': 'web-discovery', 'name': '公开网页搜索发现', 'publisher': '搜索发现（发布机构待核验）', 'category': '搜索发现', 'type': 'search', 'province': '全国', 'url': 'https://html.duckduckgo.com/html/?' + urlencode({'q': args.query}), 'query': args.query, 'maxArticles': 24})
-        if 'wechat' in channels:sources.insert(0,{'id':'wechat-discovery','name':'公众号主动检索','publisher':'搜索发现（账号待核验）','category':'微信公众号','type':'wechat-search','province':'全国','url':'https://weixin.sogou.com/weixin?'+urlencode({'query':args.query,'type':'2'}),'query':args.query,'maxArticles':3})
-        if 'video' in channels:sources.insert(0,{'id':'video-discovery','name':'短视频主动检索','publisher':'视频发现（作者待核验）','category':'短视频','type':'video-search','province':'全国','url':'https://www.sogou.com/web?'+urlencode({'query':args.query+' 视频'}),'query':args.query,'videoPlatform':'all','maxArticles':3})
+        if 'wechat' in channels and not any(s.get('type')=='wechat-search' for s in sources):sources.insert(0,{'id':'wechat-discovery','name':'公众号主动检索','publisher':'搜索发现（账号待核验）','category':'微信公众号','type':'wechat-search','province':'全国','url':'https://weixin.sogou.com/weixin?'+urlencode({'query':args.query,'type':'2'}),'query':args.query,'maxArticles':3})
+        if 'video' in channels and not any(s.get('type')=='video-search' for s in sources):sources.insert(0,{'id':'video-discovery','name':'短视频主动检索','publisher':'视频发现（作者待核验）','category':'短视频','type':'video-search','province':'全国','url':'https://www.sogou.com/web?'+urlencode({'query':args.query+' 视频'}),'query':args.query,'videoPlatform':'all','maxArticles':3})
     if not sources:
         raise SystemExit('没有启用的数据源，未执行空扫描')
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:

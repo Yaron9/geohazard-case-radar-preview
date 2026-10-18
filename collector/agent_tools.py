@@ -16,7 +16,7 @@ from platform_media import capabilities,collect_platform,platform_of,timestamp
 def search(request):
     query=str(request.get('query','')).strip()
     if not query or len(query)>200:raise ValueError('检索词须为1–200字')
-    channels=request.get('channels') or ['web','wechat','video']
+    channels=request.get('channels', ['web'])
     if not isinstance(channels,list) or not channels or any(c not in ['web','wechat','video'] for c in channels):raise ValueError('检索渠道无效')
     channels=list(dict.fromkeys(channels));sources=[]
     if 'web' in channels:sources.append({'id':'web-discovery','name':'助手网页检索','publisher':'发布主体待核验','type':'search','province':'全国','url':'https://html.duckduckgo.com/html/','query':query,'maxArticles':4})
