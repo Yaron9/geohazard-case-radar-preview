@@ -1,6 +1,8 @@
 """Pinned upstream TrendRadar integration (RSS fetching + keyword matching)."""
 from functools import lru_cache
 import sys
+from importlib.machinery import ModuleSpec
+from importlib.util import module_from_spec
 from pathlib import Path
 
 REVISION = '657094ed6a527441b917e16d9497fc8435ed091d'
@@ -17,6 +19,14 @@ def modules():
         raise RuntimeError('TrendRadar版本与固定基线不一致，请重新安装')
     if str(ROOT) not in sys.path:
         sys.path.insert(0, str(ROOT))
+    # Upstream's package __init__ eagerly imports its optional AI application.
+    # Load only the unmodified collection modules through namespace packages;
+    # this adapter does not require or initialize a model client.
+    for package in ['trendradar','trendradar.crawler','trendradar.crawler.rss','trendradar.storage','trendradar.utils','trendradar.core']:
+        if package not in sys.modules:
+            spec = ModuleSpec(package, loader=None, is_package=True)
+            spec.submodule_search_locations = [str(ROOT.joinpath(*package.split('.'))) ]
+            sys.modules[package] = module_from_spec(spec)
     from trendradar.crawler.rss.fetcher import RSSFetcher, RSSFeedConfig
     from trendradar.core.frequency import matches_word_groups
     return RSSFetcher, RSSFeedConfig, matches_word_groups
