@@ -1,12 +1,13 @@
 """Pinned upstream TrendRadar integration (RSS fetching + keyword matching)."""
 from functools import lru_cache
 import sys
+import os
 from importlib.machinery import ModuleSpec
 from importlib.util import module_from_spec
 from pathlib import Path
 
 REVISION = '657094ed6a527441b917e16d9497fc8435ed091d'
-ROOT = Path(__file__).resolve().parent.parent / 'work' / 'trendradar'
+ROOT = Path(os.environ.get('RADAR_TRENDRADAR_ROOT', str(Path(__file__).resolve().parent.parent / 'work' / 'trendradar')))
 
 
 @lru_cache(maxsize=1)
