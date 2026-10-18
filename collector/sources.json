@@ -242,6 +242,19 @@
       "allowedHosts": [
         "www.sogou.com"
       ]
+    },
+    {
+      "id": "media-rule-3e8911dd078e",
+      "name": "视频检索·地质灾害五步避险法_哔哩哔哩_bilibili",
+      "publisher": "待核验",
+      "category": "短视频",
+      "type": "video-search",
+      "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%E4%BA%94%E6%AD%A5%E9%81%BF%E9%99%A9%E6%B3%95_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9_bilibili&platform=bilibili",
+      "query": "地质灾害五步避险法_哔哩哔哩_bilibili",
+      "videoPlatform": "bilibili",
+      "province": "全国",
+      "enabled": true,
+      "pendingAdapter": false
     }
   ]
 }
