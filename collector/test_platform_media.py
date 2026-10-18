@@ -54,6 +54,12 @@ class PlatformTests(unittest.TestCase):
   with patch('crawl.fetch',return_value=(soup,'https://mp.weixin.qq.com/s/test',html.encode())):
    article=read_wechat('https://mp.weixin.qq.com/s/test')
   self.assertEqual(article['publishedAt'],'2026-10-17');self.assertEqual(article['media']['accountName'],'县融媒体')
+ def test_drill_video_does_not_enter_case_leads(self):
+  from crawl import merge_feed
+  article={'title':'地质灾害应急避险演练','url':'https://www.bilibili.com/video/BV123','body':'','capturedAt':'2026-01-01','publishedAt':'','publisher':'发布者','media':{'platform':'bilibili','textStatus':'missing'}}
+  self.assertEqual(article_records(article,{'id':'v'},True),[])
+  old={**article,'id':'old-drill','resourceKind':'video-lead'}
+  items,_,_=merge_feed({'items':[old]},[]);self.assertEqual(items,[])
  def test_single_video_failure_does_not_report_success(self):
   with patch('platform_media.read_video',side_effect=RuntimeError('登录限制')):
    records,run=collect_platform({'id':'v','name':'视频','type':'video','url':'https://www.douyin.com/video/123'})

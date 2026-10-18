@@ -200,7 +200,7 @@ def read_video(url):
 
 
 def search_videos(query,platform='all',limit=3):
-    from crawl import fetch
+    from crawl import fetch,discovery_title
     from web_search import result_links
     candidates=[];traces=[]
     if platform in ['all','bilibili']:
@@ -210,8 +210,11 @@ def search_videos(query,platform='all',limit=3):
             _,_,raw=fetch(url);data=json.loads(raw)
             if data.get('code')!=0:raise RuntimeError(f'站内搜索受限：{data.get("code")}')
             results=(data.get('data') or {}).get('result') or [];trace['returned']=len(results)
-            for item in results[:limit]:
-                if re.fullmatch(r'BV[\w]+',item.get('bvid','')):candidates.append({'url':'https://www.bilibili.com/video/'+item['bvid'],'title':BeautifulSoup(item.get('title',''),'html.parser').get_text(' ',strip=True),'snippet':item.get('description',''),'accountName':item.get('author','')})
+            for item in results:
+                if len(candidates)>=limit:break
+                title=BeautifulSoup(item.get('title',''),'html.parser').get_text(' ',strip=True)
+                if not discovery_title(title):continue
+                if re.fullmatch(r'BV[\w]+',item.get('bvid','')):candidates.append({'url':'https://www.bilibili.com/video/'+item['bvid'],'title':title,'snippet':item.get('description',''),'accountName':item.get('author','')})
             trace['relevant']=len(candidates)
         except Exception as error:trace.update(status='failure',error=str(error)[:180])
         traces.append(trace)
@@ -225,6 +228,7 @@ def search_videos(query,platform='all',limit=3):
                 soup,_,_=fetch(url);links=result_links(soup,provider,base);trace['returned']=len(links)
                 for link,title in links:
                     if len(candidates)>=limit:break
+                    if not discovery_title(title):continue
                     try:
                         if provider=='搜狗':_,link,_=fetch(link)
                         found=platform_of(link)
@@ -239,8 +243,9 @@ def search_videos(query,platform='all',limit=3):
 
 
 def article_records(article,source,lead=False):
-    from crawl import split_report,digest,HAZARDS,REGIONS,GEO_TOPIC,ACTION_TOPIC
+    from crawl import split_report,digest,HAZARDS,REGIONS,GEO_TOPIC,ACTION_TOPIC,EXCLUSIONS
     text=article.get('body','');title=article.get('title','')
+    if EXCLUSIONS.search(title):return []
     if not (GEO_TOPIC.search(title+' '+text+' '+article.get('description','')) or re.search(r'避险|避灾',title)):return []
     prepared={**article,'sourceId':source['id'],'reportTitle':title}
     if not lead:

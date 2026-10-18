@@ -197,7 +197,7 @@ def crawl_source(source, archive):
 
 
 def merge_feed(previous, records):
-    items = {item['id']: item for item in previous.get('items', [])}
+    items = {item['id']: item for item in previous.get('items', []) if not(item.get('resourceKind') in ['video-lead','article-lead'] and EXCLUSIONS.search(item['title']))}
     added, changed = 0, 0
     for record in records:
         old = items.get(record['id'])
