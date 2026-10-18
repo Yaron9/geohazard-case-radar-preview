@@ -201,6 +201,17 @@
         "崩塌",
         "避险"
       ]
+    },
+    {
+      "id": "suggest-181f99ed451f",
+      "name": "搜狐",
+      "publisher": "搜狐",
+      "category": "地方媒体",
+      "type": "article",
+      "url": "https://www.sohu.com/a/1021686475_121106842",
+      "province": "全国",
+      "enabled": false,
+      "pendingAdapter": true
     }
   ]
 }
