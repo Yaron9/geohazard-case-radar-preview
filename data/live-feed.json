@@ -1,9 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-18T05:06:35+00:00",
-  "lastSuccessAt": "2026-10-18T05:06:35+00:00",
+  "generatedAt": "2026-10-19T05:16:29+00:00",
+  "lastSuccessAt": "2026-10-19T05:16:29+00:00",
   "scope": "搜索引擎公开检索与TrendRadar/网页来源监测；名录条目单列为待补证线索，未经过人工案例认定",
-  "sourceSuggestions": [],
+  "sourceSuggestions": [
+    {
+      "id": "suggest-30477251d32d",
+      "status": "needs-adapter",
+      "reason": "已发现相关原文，尚未验证可持续采集入口。",
+      "evidenceUrl": "https://www.sohu.com/a/933872242_121106854",
+      "evidenceTitle": "地质灾害来袭，1635人何以成功避险→",
+      "source": {
+        "id": "suggest-30477251d32d",
+        "name": "搜狐",
+        "publisher": "搜狐",
+        "category": "地方媒体",
+        "type": "article",
+        "url": "https://www.sohu.com/a/933872242_121106854",
+        "province": "全国",
+        "enabled": false,
+        "pendingAdapter": true
+      }
+    }
+  ],
   "sources": [
     {
       "id": "web-discovery",
@@ -227,7 +246,7 @@
       "publisher": "红网湖南频道",
       "sourceCredit": "湖南日报",
       "sourceId": "rednet-hunan",
-      "capturedAt": "2026-10-18T05:05:43+00:00",
+      "capturedAt": "2026-10-19T05:15:27+00:00",
       "id": "live-f47e07a1712870f3",
       "reportTitle": "湖南通报2026年度“十大转移避险避灾案例” 倡议全民参与防灾减灾活动_社会.法治_湖南频道",
       "summary": "名录线索：湘西永顺灵溪“6·14”道路边坡滑坡成功避险避灾案例。原报道只列案例名称，缺少个案处置与结果细节，需继续补证。",
@@ -271,7 +290,7 @@
       "publisher": "红网湖南频道",
       "sourceCredit": "湖南日报",
       "sourceId": "rednet-hunan",
-      "capturedAt": "2026-10-18T05:05:43+00:00",
+      "capturedAt": "2026-10-19T05:15:27+00:00",
       "id": "live-9c44bfc33d1f72d2",
       "reportTitle": "湖南通报2026年度“十大转移避险避灾案例” 倡议全民参与防灾减灾活动_社会.法治_湖南频道",
       "summary": "名录线索：株洲炎陵下村“8·29”山体滑坡成功避险避灾案例。原报道只列案例名称，缺少个案处置与结果细节，需继续补证。",
@@ -315,7 +334,7 @@
       "publisher": "红网湖南频道",
       "sourceCredit": "湖南日报",
       "sourceId": "rednet-hunan",
-      "capturedAt": "2026-10-18T05:05:43+00:00",
+      "capturedAt": "2026-10-19T05:15:27+00:00",
       "id": "live-989e7bf677d82b2d",
       "reportTitle": "湖南通报2026年度“十大转移避险避灾案例” 倡议全民参与防灾减灾活动_社会.法治_湖南频道",
       "summary": "名录线索：郴州桂东沤江“9·5”山体滑坡成功避险避灾案例。原报道只列案例名称，缺少个案处置与结果细节，需继续补证。",
@@ -359,7 +378,7 @@
       "publisher": "红网湖南频道",
       "sourceCredit": "湖南日报",
       "sourceId": "rednet-hunan",
-      "capturedAt": "2026-10-18T05:05:43+00:00",
+      "capturedAt": "2026-10-19T05:15:27+00:00",
       "id": "live-4d22961fc5b4ca28",
       "reportTitle": "湖南通报2026年度“十大转移避险避灾案例” 倡议全民参与防灾减灾活动_社会.法治_湖南频道",
       "summary": "名录线索：益阳安化长塘“8·20”山体滑坡成功避险避灾案例。原报道只列案例名称，缺少个案处置与结果细节，需继续补证。",
@@ -403,7 +422,7 @@
       "publisher": "红网湖南频道",
       "sourceCredit": "湖南日报",
       "sourceId": "rednet-hunan",
-      "capturedAt": "2026-10-18T05:05:43+00:00",
+      "capturedAt": "2026-10-19T05:15:27+00:00",
       "id": "live-443af5c3e61a8276",
       "reportTitle": "湖南通报2026年度“十大转移避险避灾案例” 倡议全民参与防灾减灾活动_社会.法治_湖南频道",
       "summary": "名录线索：长沙宁乡龙田“7·20”山体崩塌成功避险避灾案例。原报道只列案例名称，缺少个案处置与结果细节，需继续补证。",
@@ -447,7 +466,7 @@
       "publisher": "红网湖南频道",
       "sourceCredit": "湖南日报",
       "sourceId": "rednet-hunan",
-      "capturedAt": "2026-10-18T05:05:43+00:00",
+      "capturedAt": "2026-10-19T05:15:27+00:00",
       "id": "live-291f3f72f6253a14",
       "reportTitle": "湖南通报2026年度“十大转移避险避灾案例” 倡议全民参与防灾减灾活动_社会.法治_湖南频道",
       "summary": "名录线索：永州宁远九疑“8·31”山体滑坡成功避险避灾案例。原报道只列案例名称，缺少个案处置与结果细节，需继续补证。",
@@ -491,7 +510,7 @@
       "publisher": "zrzy.guizhou.gov.cn（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-10-18T05:06:22+00:00",
+      "capturedAt": "2026-10-19T05:15:46+00:00",
       "id": "live-5a0c82fa65e4d06d",
       "reportTitle": "9起成功案例！2025年贵州省地质灾害避让实践带给我们的启示",
       "summary": "2025年5至7月，贵州多地遭遇强降雨天气，引发多起地质灾害。\n得益于各级部门的精准预警、果断处置以及群众的积极配合，成功避让了多起灾害，最大限度保障了人民群众的生命财产安全。",
@@ -535,7 +554,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-10-18T05:05:31+00:00",
+      "capturedAt": "2026-10-19T05:15:24+00:00",
       "id": "live-f6f5c817755e38e5",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年7月1日19时，受持续强降雨影响，湖南省岳阳市平江县童市镇芭蕉村新屋组发生大面积山体滑坡，方量达200万立方米，属于大型土岩混合滑坡。\n滑坡前缘的11户房屋全部被掩埋，滑坡体堆积在沟道内，形成了水体方量达5万立方米的堰塞湖，导致7户房屋被淹、道路中断、河道堵塞，电力、通信等基础设施损毁严重。",
@@ -579,7 +598,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-10-18T05:05:31+00:00",
+      "capturedAt": "2026-10-19T05:15:24+00:00",
       "id": "live-dff68162462d0011",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年6月16日1时30分，福建省南平市松溪县茶平乡吴山头村发生山体滑坡，规模约5万立方米，造成28栋房屋倒塌或损毁。\n因提前两天将村民转移避险，未造成人员伤亡。",
@@ -623,7 +642,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-10-18T05:05:31+00:00",
+      "capturedAt": "2026-10-19T05:15:24+00:00",
       "id": "live-c1b55d3a29d5dd2b",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年6月15日19时30分左右，广西壮族自治区百色市德保县敬德镇暮洞村曲江屯、根梅屯、堂洞屯（三屯同位于一处冲沟口处）发生一起泥石流地质灾害。\n灾害发生前，当地政府组织紧急撤离，受威胁的18人实现成功避险。",
@@ -667,7 +686,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-10-18T05:05:31+00:00",
+      "capturedAt": "2026-10-19T05:15:24+00:00",
       "id": "live-b38451b6f2bf7f90",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "受持续强降雨影响，2024年7月11日3时27分，四川省万源市罗文镇团堡梁村解放湾组改板湾发生高位岩质滑坡，造成33户173间房屋严重受损、3户16间房屋被掩埋，两条通村水泥路损毁600米，输电线路铁塔1座受损。\n因提前避险转移受威胁住户22户34人，确保了当地群众生命安全。",
@@ -711,7 +730,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-10-18T05:05:31+00:00",
+      "capturedAt": "2026-10-19T05:15:24+00:00",
       "id": "live-8c50b4eb0ac1c244",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年7月10日11时，湖北省秭归县沙镇溪镇三星店村香山路张家红屋场发生滑坡，造成香山路损毁342米、张家红房屋滑动20余米，因提前避险撤离74户206人并封闭道路，无人员伤亡，避免直接及间接经济损失约5000万元。\n沙镇溪镇后方区域（包含张家红屋场滑坡区）被划分为极高风险区后，秭归县自然资源和规划局及沙镇溪镇人民政府依据风险区防控建议对该风险区居民进行地质灾害宣传和培训，并安排专人定期对该风险区进行巡查监测。",
@@ -755,7 +774,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-10-18T05:05:31+00:00",
+      "capturedAt": "2026-10-19T05:15:24+00:00",
       "id": "live-7bb5bca42378b9d9",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年9月9日22时30分，受连续强降雨天气影响，云南省河口县河口镇南屏社区子丫小组地质灾害隐患点突发滑坡，造成居民房屋36户79 间受损。\n由于受威胁群众36户74人提前转移避险，未造成人员伤亡。",
@@ -799,7 +818,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-10-18T05:05:31+00:00",
+      "capturedAt": "2026-10-19T05:15:24+00:00",
       "id": "live-64ee4f5197a7dca8",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年8月12日凌晨，陕西省岚皋县城关镇四坪社区王家湾发生滑坡，导致一栋2层4间房的民房被完全冲垮掩埋，另1栋3层楼房与6层楼房的房屋背部被滑土半包围。\n因受威胁人员提前撤离，实现成功避险。",
@@ -843,7 +862,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-10-18T05:05:31+00:00",
+      "capturedAt": "2026-10-19T05:15:24+00:00",
       "id": "live-549854da1903b42c",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年7月5日22时至6日凌晨，受持续强降雨影响，西藏自治区定日县绒辖乡邦色沟暴发泥石流灾害，导致通往绒辖乡政府驻地道路交通、电力、通信等中断，公路路基、桥梁、涵洞等设施不同程度受损，得益于及时预警和提前转移群众，未造成人员伤亡。\n2024年7月，位于喜马拉雅山脉南坡的定日县绒辖乡出现持续降雨天气，7月2日~5日，持续3天的强降雨引起了群测群防员和沟口居民的警惕，发现沟内水流断流等异常后，第一时间反映上报。",
@@ -887,7 +906,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-10-18T05:05:31+00:00",
+      "capturedAt": "2026-10-19T05:15:24+00:00",
       "id": "live-1a46974b0ff95e6f",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年6月28日凌晨，受强降雨影响，重庆市武隆区长坝镇鹅冠村叶家堡组长田坎滑坡发生灾情，造成坡体上3 栋房屋损毁，直接经济损失约 120万元。\n因提前撤离受威胁居民32户55人，未造成人员伤亡。",
@@ -931,7 +950,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-10-18T05:05:31+00:00",
+      "capturedAt": "2026-10-19T05:15:24+00:00",
       "id": "live-1656438993941dd5",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年7月25日8时20分，四川省乐山市沙湾区牛石镇朝山村3组红岩凼附近山体发生大规模滑坡，形成链式灾害，造成5户村民房屋倒塌，10户民房及1处养猪场房屋受损。\n由于巡查人员发现险情及时，提前疏散转移33户77人，成功避免15户35人因灾伤亡，避免直接经济损失50 万元。",
@@ -975,7 +994,7 @@
       "publisher": "中华人民共和国应急管理部",
       "sourceCredit": "",
       "sourceId": "mem-xian",
-      "capturedAt": "2026-10-18T05:05:30+00:00",
+      "capturedAt": "2026-10-19T05:15:25+00:00",
       "id": "live-5fd06988d6aa1077",
       "reportTitle": "陕西西安提前成功预警崩塌事故 人员安全撤离",
       "summary": "2月23日10时57分，\n西安市地质灾害监测预警信息平台发出报警，安装于西安市临潼区斜口镇白杨树村的地质灾害监测仪器设备传输回的监测数据异常，疑似现场地表发生变形，分析判断有发生崩塌事故的险情征兆。",
@@ -1206,6 +1225,49 @@
       ]
     },
     {
+      "title": "地质灾害来袭，1635人何以成功避险→",
+      "url": "https://www.sohu.com/a/933872242_121106854",
+      "publishedAt": "",
+      "body": "8\n月\n20\n日，自然资源部办公厅印发\n7\n月地质灾害成功避险典型案例清单（\n）\n，涉及\n111\n起地质灾害，包括泥石流、滑坡、崩塌\n3\n个灾害类型，共紧急转移\n3722\n人，避免\n1635\n人可能因灾伤亡。\n7\n月，全国多地遭遇极端强降雨，累计雨量大、暴雨过程密集，引发大量地质灾害，防治形势严峻复杂。一次次成功避险，是各地各级部门迅速行动，及时发布预警、强化巡查排查、深化群测群防、果断转移群众，全力保障人民群众生命财产安全的结果。\n快速响应\n避免重大人员伤亡\n面对强降雨引发的泥石流、滑坡等灾害，各地通过提前研判风险、果断组织撤离，结合工程防护或严格管控措施，\n通过\n“预警—响应—转移”的高效衔接，有效规避重大人员伤亡风险。\n在\n7\n月\n111\n起地质灾害成功避险案例中，四川理县“\n7\n·\n4\n”沙坝村转经楼沟泥石流避险、四川叙永“\n7\n·\n24\n”红洞桥村滑坡避险案例较为典型。\n7\n月\n4\n日\n18\n时\n46\n分，四川省阿坝藏族羌族自治州理县古尔沟镇沙坝村转经楼沟突发泥石流，因泥石流治理工程发挥效用，且提前组织群众避险转移，避免了\n28\n户\n101\n人因灾伤亡。当天\n16\n时\n21\n分，阿坝州自然资源局发布橙色预警，理县自然资源局立即向涉险乡镇发送提示单并要求加密巡查。\n17\n时\n15\n分，沙坝村居民小组长王平巡查发现沟水变浑浊后迅速上报，村“两委”随即启动预案。\n17\n时\n20\n分，受威胁群众\n77\n户\n174\n人全部避险转移至安全地带。\n此次避险既得益于泥石流治理工程拦挡大量固体物源，更依赖预警响应与转移行动的无缝衔接。\n7\n月\n24\n日\n6\n时，受持续强降雨影响，四川省泸州市叙永县大石镇红洞桥村发生山体滑坡，因预警及时、提前撤离果断、管控到位，避免了\n56\n户\n117\n人可能因灾伤亡。\n7\n月\n20\n日至\n7\n月\n23\n日，泸州市、叙永县持续发布地质灾害气象风险预警。\n7\n月\n22\n日，红洞桥村\n12\n社社长杨胜录发现地面开裂上报后，镇村干部与专家核查确认坡体变形，当日转移\n6\n户\n13\n人。\n7\n月\n23\n日坡体变形加剧，转移范围扩大至\n45\n户\n95\n人。\n7\n月\n24\n日凌晨，值守人员听见山体异响，镇党委书记果断再次扩大转移范围至\n56\n户\n117\n人。\n严格落实“三个避让”“三个紧急撤离”及扩面转移等措施，最终避免\n117\n人伤亡。\n精准预警\n展开全文\n为提前撤离预留时间\n在\n7\n月地质灾害成功避险案例中，“气象\n+\n自然资源”部门联动预警，通过精准提升预警等级、强化降雨期巡查监测，及时捕捉山体变形、沟水异常等险情信号，为提前撤离预留充足时间，\n凸显预警系统对避险的前置保障作用。\n7\n月\n1\n日\n10\n时\n24\n分，广西百色市隆林县金钟山乡平流屯发生\n8\n万立方米滑坡，致\n2\n栋房屋倒塌、\n4\n栋房屋受损，直接经济损失约\n180\n万元。\n6\n月\n30\n日\n23\n时\n50\n分，自治区自然资源厅与百色市自然资源局相继将隆林县预警等级从蓝色提至黄色，并通知当地加强巡查监测；\n7\n月\n1\n日\n8\n时\n36\n分，村干部巡查发现山体裂缝后上报，\n9\n时\n50\n分乡政府研判风险并组织\n6\n户\n27\n人撤离。\n在地质灾害黄色预警发布后，县、乡、村严格执行预警响应机制，加强巡查、及时上报、科学研判、果断撤离\n，使群众在滑坡发生前安全转移，避免\n5\n户\n21\n人因灾伤亡。\n“平战结合”的巡排查模式与科技手段应用，为预警响应提供关键支撑。\n7\n月\n9\n日\n9\n时\n10\n分，陕西省商洛市山阳县漫川关镇万福村祝家湾坡体前缘垮塌，致\n6\n户\n12\n间房屋受损。由于巡排查发现变形迹象，群众及时撤离，避免了\n6\n户\n21\n人可能因灾伤亡。祝家湾组于\n2024\n年\n4\n月被纳入高风险区，县自然资源局联合技术单位常态化开展宣传与巡排查。\n7\n月\n6\n日山阳县普降大雨后，\n8\n日\n15\n时，技术单位通过无人机航拍发现坡体局部变形，\n15\n时\n20\n分完成\n25\n户\n45\n人转移。\n“前哨”有力\n实现“早发现、早处置”\n“前哨”的作用有效发挥，\n“早发现、早处置”的基层防灾优势得以体现，是不少地质灾害成功避险的关键。\n具体表现为，基层网格专管员、村干部作为“前哨”，严格落实雨中巡查要求，第一时间发现灾害前兆。同时，基层单位对照预警级别快速启动响应，精准组织群众撤离，避免人员伤亡。\n7\n月\n9\n日\n10\n时，湖北省十堰市郧西县上津镇刘家湾村发生\n3\n万立方米泥石流，致\n7\n户房屋倒塌、\n13\n户受损。当日\n8\n时，刘家湾村党支部书记（地灾网格专管员）李青富在雨中巡查时，发现屋后山体垮塌、冲沟洪水浑浊，判断风险后立即联合村委会组织\n20\n户\n36\n人转移。\n2\n小时后灾害发生，洪水裹挟着垮塌的岩土体形成暴雨性泥石流冲入坡下居民区内。\n因巡查发现险情，及时组织群众转移，避免了\n20\n户\n36\n人可能因灾伤亡，基层网格的“前哨”作用凸显。\n7\n月\n9\n日\n6\n时，浙江省温州市苍南县马站镇兰山村屋后发生滑坡，致\n89\n至\n92\n号房屋严重受损，未造成人员伤亡。此前受\n4\n号台风“丹娜丝”影响，苍南县普降暴雨。\n7\n月\n8\n日\n8\n时，省、市、县自然资源部门同步发布红色预警，温州市启动Ⅱ级响应，\n14\n时马站镇组织风险区群众转移，涉及兰山村\n10\n户\n16\n人。此次避险是浙江省\n“风险双控”管理的典型实践，三级联动预警与基层精准转移形成高效合力。\n部门协同\n形成防灾减灾合力\n一次次成功避险的背后，还凝聚着\n“劲往一处使”的协同力量。\n自然资源、应急管理、气象等部门联动发布预警、共享信息。\n地方政府结合特色工作法（如“\n1262\n”“\n1373\n”“一镇一图”），依托邻里协作或网格管理组织转移，实现“应转尽转、应转早转”，\n彰显跨部门、多层级的防灾合力。\n7\n月\n22\n日\n8\n时，云南省昭通市威信县罗布镇罗布社区发生\n21\n万立方米滑坡，致部分房屋受损。\n7\n月\n22\n日\n2\n时\n22\n分，县气象局发布预警后，县委、县政府要求各乡镇落实“\n1262\n”精细化预警机制与“\n1373\n”应急转移法。罗布镇通过电话、微信通知群众；\n7\n时，社区居民发现后山树木倾斜，随即呼叫\n9\n户\n38\n人撤离并上报，乡、县相关部门赶赴现场管控。云南省通过实施“\n1262\n”精细化预报服务，\n构建了气象、自然资源、应急管理等部门协同联动的防灾减灾机制，为地质灾害风险防范提供决策支撑。\n此次滑坡发生前，部门协同配合，实现了受威胁区域群众“应转尽转、应转早转”。\n7\n月\n23\n日凌晨\n3\n时，广东省阳江市阳春市三甲镇塘增村发生山体滑坡，致\n2\n户房屋受损。此前受第\n6\n号台风“韦帕”影响，阳春市出现暴雨。\n7\n月\n22\n日\n16\n时至\n17\n时，阳江市、阳春市自然资源与气象部门先后发布地质灾害三级预警。三甲镇依据“一镇一图”“一村一图一表”开展巡查，村党支部书记刘传真发现\n21\n号屋后有滑坡风险后上报，镇、村干部随即组织\n152\n名村民转移。\n7\n月全国地质灾害成功避险实践表明，\n通过构建“精准预警、基层巡查、快速转移、协同联动”的防治体系，结合科技赋能与群测群防，可有效降低地质灾害对人员的威胁。\n各地需结合自身灾害特点，优化预警机制、深化部门协作，不断提升地质灾害防治能力。\n来源：中国应急管理报\n返回搜狐，查看更多",
+      "publisher": "www.sohu.com（发布主体待核验）",
+      "sourceCredit": "中国应急管理报",
+      "sourceId": "web-discovery",
+      "capturedAt": "2026-10-19T05:16:22+00:00",
+      "id": "live-accc74e7465e607c",
+      "reportTitle": "地质灾害来袭，1635人何以成功避险→",
+      "summary": "日，自然资源部办公厅印发\n月地质灾害成功避险典型案例清单（",
+      "resourceKind": "report",
+      "section": 0,
+      "province": "全国",
+      "hazard": "泥石流",
+      "eventDate": "",
+      "evidence": [
+        {
+          "label": "风险发现",
+          "quote": "一次次成功避险，是各地各级部门迅速行动，及时发布预警、强化巡查排查、深化群测群防、果断转移群众，全力保障人民群众生命财产安全的结果。",
+          "confirmed": false
+        },
+        {
+          "label": "提前行动",
+          "quote": "个灾害类型，共紧急转移",
+          "confirmed": false
+        },
+        {
+          "label": "风险验证",
+          "quote": "时，受持续强降雨影响，四川省泸州市叙永县大石镇红洞桥村发生山体滑坡，因预警及时、提前撤离果断、管控到位，避免了",
+          "confirmed": false
+        },
+        {
+          "label": "避险成效",
+          "quote": "月地质灾害成功避险典型案例清单（",
+          "confirmed": false
+        }
+      ],
+      "fingerprint": "d088ac52087155a5848c544a05c18fb8456b73aaa58e22aad4c54a8b12da181a",
+      "firstSeenAt": "2026-10-19T05:16:22+00:00",
+      "version": 1
+    },
+    {
       "title": "陕西宝鸡太白县一公路突发山体滑坡，塌方量约5000立方米，巡查人员及时发现，封闭道路#山体滑坡_哔哩哔哩_bilibili",
       "url": "https://www.bilibili.com/video/BV1upJS6gE7i/",
       "publishedAt": "",
@@ -1270,7 +1332,7 @@
       "publisher": "www.sohu.com（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-10-18T05:06:28+00:00",
+      "capturedAt": "2026-10-19T05:16:10+00:00",
       "id": "live-5672a740729de82b",
       "reportTitle": "2025年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "今天是第18个全国防灾减灾日，自然资源部地质勘查管理司公布了2025年度全国地质灾害成功避险十大典型案例，以期助力各地从案例中学习经验、查找不足，巩固提升基层防灾减灾能力与实效。\n（案例按省级行政区划排序）",
@@ -1423,6 +1485,338 @@
     }
   ],
   "runs": [
+    {
+      "id": "crawl-2026-10-19T05:16:29+00:00",
+      "startedAt": "2026-10-19T05:15:23+00:00",
+      "finishedAt": "2026-10-19T05:16:29+00:00",
+      "query": "地质灾害 成功避险",
+      "mode": "all",
+      "newRecords": 1,
+      "changedRecords": 0,
+      "successfulSources": 11,
+      "failedSources": 4,
+      "results": [
+        {
+          "sourceId": "cgs-2024-cases",
+          "name": "中国地质调查局·2024年十大避险案例",
+          "url": "https://www.cgs.gov.cn/ywdt/ddyw/202505/t20250512_820403.html",
+          "startedAt": "2026-10-19T05:15:23+00:00",
+          "finishedAt": "2026-10-19T05:15:24+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 10,
+          "failures": []
+        },
+        {
+          "sourceId": "cgs-news",
+          "name": "中国地质调查局·地调要闻",
+          "url": "https://www.cgs.gov.cn/ywdt/ddyw/",
+          "startedAt": "2026-10-19T05:15:24+00:00",
+          "finishedAt": "2026-10-19T05:15:25+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "chinanews-society-rss",
+          "name": "中新网·社会新闻订阅",
+          "url": "https://www.chinanews.com.cn/rss/society.xml",
+          "startedAt": "2026-10-19T05:15:40+00:00",
+          "finishedAt": "2026-10-19T05:15:41+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": [],
+          "engine": "TrendRadar RSSFetcher"
+        },
+        {
+          "sourceId": "cnhubei-local",
+          "name": "荆楚网·湖北日报网",
+          "url": "https://www.cnhubei.com/",
+          "startedAt": "2026-10-19T05:15:38+00:00",
+          "finishedAt": "2026-10-19T05:15:38+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "cqnews-county",
+          "name": "华龙网·区县新闻",
+          "url": "https://www.cqnews.net/web/column/col11322.html",
+          "startedAt": "2026-10-19T05:15:35+00:00",
+          "finishedAt": "2026-10-19T05:15:37+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "fjsen-local",
+          "name": "东南网·福建地方新闻",
+          "url": "https://www.fjsen.com/",
+          "startedAt": "2026-10-19T05:15:38+00:00",
+          "finishedAt": "2026-10-19T05:15:39+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "hunan-news",
+          "name": "湖南省自然资源厅·市县动态",
+          "url": "https://zrzyt.hunan.gov.cn/xxgk/gzdt/sxxx/",
+          "startedAt": "2026-10-19T05:15:25+00:00",
+          "finishedAt": "2026-10-19T05:15:25+00:00",
+          "status": "failure",
+          "httpStatus": 0,
+          "pagesScanned": 0,
+          "recordsFound": 0,
+          "failures": [
+            {
+              "url": "https://zrzyt.hunan.gov.cn/xxgk/gzdt/sxxx/",
+              "message": "HTTP 0; curl: (35) OpenSSL/3.0.13: error:0A000132:SSL routines::bad ecpoint"
+            }
+          ]
+        },
+        {
+          "sourceId": "mem-xian",
+          "name": "应急管理部·西安崩塌预警报道",
+          "url": "https://www.mem.gov.cn/xw/gdyj/202303/t20230302_443868.shtml",
+          "startedAt": "2026-10-19T05:15:23+00:00",
+          "finishedAt": "2026-10-19T05:15:25+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 1,
+          "failures": []
+        },
+        {
+          "sourceId": "newssc-sichuan",
+          "name": "四川新闻网",
+          "url": "https://www.newssc.org/",
+          "startedAt": "2026-10-19T05:15:40+00:00",
+          "finishedAt": "2026-10-19T05:15:40+00:00",
+          "status": "failure",
+          "httpStatus": 0,
+          "pagesScanned": 0,
+          "recordsFound": 0,
+          "failures": [
+            {
+              "url": "https://www.newssc.org/",
+              "message": "HTTP 0; curl: (28) Failed to connect to www.newssc.org port 443 after 10001 ms: Timeout was reached"
+            }
+          ]
+        },
+        {
+          "sourceId": "rednet-hunan",
+          "name": "红网·湖南频道",
+          "url": "https://hn.rednet.cn/",
+          "startedAt": "2026-10-19T05:15:25+00:00",
+          "finishedAt": "2026-10-19T05:15:27+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 2,
+          "recordsFound": 6,
+          "failures": []
+        },
+        {
+          "sourceId": "sc-news",
+          "name": "四川省自然资源厅·公示公告",
+          "url": "https://dnr.sc.gov.cn/scdnr/scgsgg/",
+          "startedAt": "2026-10-19T05:15:35+00:00",
+          "finishedAt": "2026-10-19T05:15:35+00:00",
+          "status": "failure",
+          "httpStatus": 0,
+          "pagesScanned": 0,
+          "recordsFound": 0,
+          "failures": [
+            {
+              "url": "https://dnr.sc.gov.cn/scdnr/scgsgg/",
+              "message": "HTTP 0; curl: (28) Failed to connect to dnr.sc.gov.cn port 443 after 10002 ms: Timeout was reached"
+            }
+          ]
+        },
+        {
+          "sourceId": "scol-sichuan",
+          "name": "四川在线·四川新闻",
+          "url": "https://sichuan.scol.com.cn/",
+          "startedAt": "2026-10-19T05:15:27+00:00",
+          "finishedAt": "2026-10-19T05:15:30+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "suggest-904d74b806b9",
+          "name": "贵州省自然资源厅",
+          "url": "https://zrzy.guizhou.gov.cn/wzgb/xwzx/xtyw1/",
+          "startedAt": "2026-10-19T05:15:39+00:00",
+          "finishedAt": "2026-10-19T05:15:41+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "web-discovery",
+          "name": "公开网页搜索发现",
+          "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9",
+          "startedAt": "2026-10-19T05:15:23+00:00",
+          "finishedAt": "2026-10-19T05:16:23+00:00",
+          "status": "partial",
+          "httpStatus": 200,
+          "pagesScanned": 18,
+          "recordsFound": 3,
+          "failures": [
+            {
+              "url": "https://news.cctv.com/2026/09/24/ARTIVhT0kkCTu8Ng7K16AAlB260924.shtml",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://zrzy.wuxi.gov.cn/doc/2026/10/12/4840878.shtml",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://www.hunan.gov.cn/zqt/zcsd/202609/t20260928_34072906.html",
+              "message": "HTTP 0; curl: (35) OpenSSL/3.0.13: error:0A000132:SSL routines::bad ecpoint"
+            },
+            {
+              "url": "https://wenku.baidu.com/view/5c42132a6deae009581b6bd97f1922791688beed.html",
+              "message": "HTTP 403; 请求未成功"
+            },
+            {
+              "url": "https://news.cctv.com/2026/08/02/ARTIe1b6qK0XUr3FhiecKks4260802.shtml",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://www.sc.gov.cn/10462/zfwjts/2026/8/13/b922e36b536e4ebdae6463bf797ce9bc.shtml",
+              "message": "HTTP 0; curl: (28) Failed to connect to www.sc.gov.cn port 443 after 10002 ms: Timeout was reached"
+            },
+            {
+              "url": "https://dnr.yn.gov.cn/html/2026/shengtingdongtai_0810/4053539.html",
+              "message": "HTTP 0; curl: (28) Connection timeout after 10000 ms"
+            },
+            {
+              "url": "https://www.toutiao.com/article/7689842207897027135/",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://wenku.baidu.com/view/c7c782c1bf4cf7ec4afe04a1b0717fd5360cb2a8.html",
+              "message": "HTTP 403; 请求未成功"
+            },
+            {
+              "url": "https://www.toutiao.com/article/7638876440372576831/",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://dnr.yn.gov.cn/html/2026/zhoushidongtai_0522/4052831.html",
+              "message": "HTTP 0; curl: (28) Connection timeout after 10000 ms"
+            },
+            {
+              "url": "https://www.toutiao.com/article/7696863513373639202/",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://m.voc.com.cn/xhn/news/202605/32736180.html",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9",
+              "message": "Web search（DuckDuckGo / 搜狗）部分查询受限或未返回可核验链接；不能据此声称完成全网覆盖。"
+            }
+          ],
+          "queries": [
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险",
+              "page": 1,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&s=0",
+              "status": "success",
+              "returned": 10,
+              "relevant": 9
+            },
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险",
+              "page": 2,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&s=30",
+              "status": "success",
+              "returned": 10,
+              "relevant": 9
+            },
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险 提前撤离 转移",
+              "page": 1,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%8F%90%E5%89%8D%E6%92%A4%E7%A6%BB+%E8%BD%AC%E7%A7%BB&s=0",
+              "status": "success",
+              "returned": 10,
+              "relevant": 10
+            },
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险 提前撤离 转移",
+              "page": 2,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%8F%90%E5%89%8D%E6%92%A4%E7%A6%BB+%E8%BD%AC%E7%A7%BB&s=30",
+              "status": "success",
+              "returned": 10,
+              "relevant": 10
+            },
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险 成功预警 避险",
+              "page": 1,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%88%90%E5%8A%9F%E9%A2%84%E8%AD%A6+%E9%81%BF%E9%99%A9&s=0",
+              "status": "failure",
+              "returned": 0,
+              "relevant": 0,
+              "error": "HTTP 202; 请求未成功"
+            },
+            {
+              "provider": "搜狗",
+              "query": "地质灾害 成功避险 成功预警 避险",
+              "page": 1,
+              "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%88%90%E5%8A%9F%E9%A2%84%E8%AD%A6+%E9%81%BF%E9%99%A9&page=1",
+              "status": "partial",
+              "returned": 8,
+              "relevant": 0,
+              "error": "未取得可用相关结果，可能为验证页或未匹配"
+            }
+          ],
+          "searchQuery": "地质灾害 成功避险",
+          "searchProvider": "Web search（DuckDuckGo / 搜狗）",
+          "discoveredLinks": 17
+        },
+        {
+          "sourceId": "yunnan-local",
+          "name": "云南网·地方新闻",
+          "url": "https://www.yunnan.cn/",
+          "startedAt": "2026-10-19T05:15:38+00:00",
+          "finishedAt": "2026-10-19T05:15:38+00:00",
+          "status": "failure",
+          "httpStatus": 403,
+          "pagesScanned": 0,
+          "recordsFound": 0,
+          "failures": [
+            {
+              "url": "https://www.yunnan.cn/",
+              "message": "HTTP 403; 请求未成功"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "crawl-2026-10-18T05:06:35+00:00",
       "startedAt": "2026-10-18T05:05:29+00:00",
