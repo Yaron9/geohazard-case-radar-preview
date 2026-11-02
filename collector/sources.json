@@ -255,6 +255,65 @@
       "province": "全国",
       "enabled": true,
       "pendingAdapter": false
+    },
+    {
+      "id": "provincial-natural-resources-wechat",
+      "name": "省级自然资源公众号",
+      "publisher": "各省（区）自然资源主管部门",
+      "province": "全国",
+      "category": "微信公众号",
+      "type": "wechat-search",
+      "url": "https://weread.qq.com/web/search/global?keyword=%E7%9C%81%E7%BA%A7%E8%87%AA%E7%84%B6%E8%B5%84%E6%BA%90%20%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3",
+      "query": "地质灾害 成功避险",
+      "enabled": false,
+      "pendingAdapter": true,
+      "accounts": [
+        {
+          "province": "云南",
+          "name": "云南省自然资源厅",
+          "evidence": "https://dnr.yn.gov.cn/html/zhengwugongkai/"
+        },
+        {
+          "province": "湖南",
+          "name": "湖南自然资源",
+          "evidence": "https://zrzyt.hunan.gov.cn/zrzyt/xxgk/zfxxgkpt/zfxxgknb/202301/t20230119_29189758.html"
+        },
+        {
+          "province": "福建",
+          "name": "福建自然资源",
+          "evidence": "https://zrzyt.fujian.gov.cn/zwgk/gsgg/202606/t20260611_7162065.htm"
+        },
+        {
+          "province": "湖北",
+          "name": "湖北自然资源",
+          "evidence": "https://zrzyt.hubei.gov.cn/fbjd/xxgknb/202401/t20240124_5060079.shtml"
+        },
+        {
+          "province": "山东",
+          "name": "山东自然资源",
+          "evidence": "https://gtj.zibo.gov.cn/gongkai/channel_646dd8143925e56591aafc66/doc_684a4257a671cb1cd04b5558.html"
+        },
+        {
+          "province": "吉林",
+          "name": "吉林自然资源",
+          "evidence": "https://zrzy.jl.gov.cn/zwgk/zfxxgk/gknb/202001/t20200122_6549288.html"
+        },
+        {
+          "province": "广西",
+          "name": "广西自然资源",
+          "evidence": "https://epaper.gxrb.com.cn/gxrb2/page/1/2022-09-29/009/77881664406233840.pdf"
+        },
+        {
+          "province": "甘肃",
+          "name": "甘肃自然资源",
+          "evidence": "https://zrzy.gansu.gov.cn/zrzy/c107627/201903/1584467/files/ee2b0d97d9f644208ce638d0f3ff0066.pdf"
+        },
+        {
+          "province": "浙江",
+          "name": "浙江自然资源",
+          "evidence": "https://zrzyt.zj.gov.cn/module/download/downfile.jsp?classid=0&filename=296ecef8e63d4d0993600a374458649a.pdf"
+        }
+      ]
     }
   ]
 }
