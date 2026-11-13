@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "generatedAt": "2026-11-12T07:42:03+00:00",
-  "lastSuccessAt": "2026-11-12T07:42:03+00:00",
+  "generatedAt": "2026-11-13T07:14:16+00:00",
+  "lastSuccessAt": "2026-11-13T07:14:16+00:00",
   "scope": "搜索引擎公开检索与TrendRadar/网页来源监测；名录条目单列为待补证线索，未经过人工案例认定",
   "sourceSuggestions": [
     {
@@ -23,21 +23,24 @@
       }
     },
     {
-      "id": "suggest-8b476024a917",
-      "status": "needs-adapter",
-      "reason": "已发现相关原文，尚未验证可持续采集入口。",
-      "evidenceUrl": "https://m.cgs.gov.cn/ddyw/202505/t20250512_787533.html",
-      "evidenceTitle": "福建松溪“6·16”吴山头村滑坡灾害避险",
+      "id": "suggest-05746d83ae64",
+      "status": "ready",
+      "reason": "已访问报道所属栏目，并验证栏目链接可提取正文，可持续监测。",
+      "evidenceUrl": "https://www.mem.gov.cn/xw/yjglbgzdt/202506/t20250606_542098.shtml",
+      "evidenceTitle": "6月中旬浙闽交界洪涝地质灾害成功避险案例：加大夜巡频次，确保国道项目施工人员安全",
       "source": {
-        "id": "suggest-8b476024a917",
-        "name": "中国地质调查局",
-        "publisher": "中国地质调查局",
+        "id": "suggest-05746d83ae64",
+        "name": "中华人民共和国应急管理部",
+        "publisher": "中华人民共和国应急管理部",
         "category": "官方网站",
-        "type": "article",
-        "url": "https://m.cgs.gov.cn/ddyw/202505/t20250512_787533.html",
-        "province": "福建",
-        "enabled": false,
-        "pendingAdapter": true
+        "type": "listing",
+        "url": "https://www.mem.gov.cn/xw/yjglbgzdt/",
+        "province": "全国",
+        "enabled": true,
+        "pendingAdapter": false,
+        "allowedHosts": [
+          "www.mem.gov.cn"
+        ]
       }
     },
     {
@@ -62,21 +65,24 @@
       }
     },
     {
-      "id": "suggest-30477251d32d",
-      "status": "needs-adapter",
-      "reason": "已发现相关原文，尚未验证可持续采集入口。",
-      "evidenceUrl": "https://www.sohu.com/a/933872242_121106854",
-      "evidenceTitle": "地质灾害来袭，1635人何以成功避险→",
+      "id": "suggest-4d1e12d94386",
+      "status": "ready",
+      "reason": "已访问报道所属栏目，并验证栏目链接可提取正文，可持续监测。",
+      "evidenceUrl": "https://www.mem.gov.cn/xw/gdyj/202605/t20260527_605162.shtml",
+      "evidenceTitle": "广东：响应及时，转移果断！成功避险多起灾害",
       "source": {
-        "id": "suggest-30477251d32d",
-        "name": "搜狐",
-        "publisher": "搜狐",
-        "category": "地方媒体",
-        "type": "article",
-        "url": "https://www.sohu.com/a/933872242_121106854",
-        "province": "全国",
-        "enabled": false,
-        "pendingAdapter": true
+        "id": "suggest-4d1e12d94386",
+        "name": "中华人民共和国应急管理部",
+        "publisher": "中华人民共和国应急管理部",
+        "category": "官方网站",
+        "type": "listing",
+        "url": "https://www.mem.gov.cn/xw/gdyj/",
+        "province": "广东",
+        "enabled": true,
+        "pendingAdapter": false,
+        "allowedHosts": [
+          "www.mem.gov.cn"
+        ]
       }
     }
   ],
@@ -611,7 +617,7 @@
       "publisher": "m.163.com（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-11-12T07:41:01+00:00",
+      "capturedAt": "2026-11-13T07:13:29+00:00",
       "id": "live-742d7be5b3f23b93",
       "reportTitle": "全国十大成功避险案例中的广东作为：在滑坡、塌陷前转移多人_手机网易网",
       "summary": "全国十大成功避险案例中的广东作为：在滑坡、塌陷前转移多人\n2026-08-03 11:24",
@@ -655,7 +661,7 @@
       "publisher": "www.mem.gov.cn（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-11-10T07:43:41+00:00",
+      "capturedAt": "2026-11-13T07:13:38+00:00",
       "id": "live-9749540a6daa8387",
       "reportTitle": "广东：响应及时，转移果断！成功避险多起灾害",
       "summary": "月以来，广东迎来大范围强降雨过程，多地出现极端强降雨，洪涝、地质灾害风险高。\n广东各级应急管理部门积极防范应对，落实落细预警“叫应”、临灾巡查、转移避险、救援抢险等各项防御措施，成功避险多起洪涝灾害、地质灾害。",
@@ -735,6 +741,49 @@
       "version": 1
     },
     {
+      "title": "湖北：鏖战177天 90起成功避险案例向全国推广",
+      "url": "https://www.mem.gov.cn/xw/gdyj/202511/t20251101_584121.shtml",
+      "publishedAt": "2025-11-01",
+      "body": "10月24日，随着今年第7号汉江洪峰平稳过境，2025年湖北汛期画上句号。这个汛期，湖北经历了多轮强降雨考验，但交出了一份特殊的“成绩单”：90起成功转移避险案例被应急管理部向全国推荐。\n177天，湖北与极端天气鏖战，留下一个个惊心动魄的生死瞬间，一次次果断及时的紧急转移，一张张劫后余生的笑脸，共同见证的是，湖北坚持“四个宁可”防灾理念，以时时放心不下的守护，换来江河安澜万家灯火。\n力挽狂澜的瞬间\n2025年8月11日傍晚，十堰市竹溪县鄂坪乡龙王溪村，暴雨倾盆。\n18时整，58岁的村党支部书记赵正元开始了当天的第三轮巡查。雨水顺着他的雨衣滴落，脚下的泥水已经没过脚踝。\n当手电筒的光束扫过李典益家屋后的山体，赵正元的心猛地一沉\n——几块碎石零散地滚落在地，原本坚固的岩壁上，一道道裂缝清晰可见，宽的有一指多宽。\n“不好！”赵正元脑海中闪过一个念头：这是崩塌前兆！\n他立即拨通县应急管理局的电话，声音因为紧张而有些颤抖：\n“鄂坪乡龙王溪村3组，李典益、王成银两户房屋后山体出现裂缝，有崩塌风险！”\n挂断电话，他又打开手机上的灾害风险隐患系统，手指在屏幕上快速滑动，完成信息报送。\n紧接着，他快步冲向李典益家。推开院门，李典益正准备做晚饭，妻子在收拾屋子。\n“李哥，赶紧走！你家后山要垮！”赵正元一边喊，一边帮着收拾东西。\n“这么大雨，去哪里住？”李典益有些犹豫。\n“命要紧还是房子要紧？！”赵正元几乎是吼出来的。\n看到赵正元满脸的焦急和认真，李典益不再犹豫。\n18时30分，李典益、王成银两户4人被转移到村部安全地带。\n19时40分——轰隆一声巨响！约20立方米的岩块呼啸而下，瞬间砸穿李典益家的后墙，冲入屋内。电视机、冰箱、衣柜等都被砸坏。\n同样的生死竞速，也在这里上演：\n在神农架林区松柏镇，李民旭发现河水变色混浊，其敏锐判断让沿岸群众在洪水吞噬家园前安全撤离；在恩施巴东绿葱坡镇上，雷仕林与张琴发现山体淤泥下滑，迅速组织\n5人转移，避开了4000立方米滑坡体的致命冲击；在宜昌秭归郭家坝镇，屈万军收到预警巡查发现山体滑移，封闭交通转移工人，6万立方米滑坡掩埋国道却无一人伤亡；神农架林区木鱼镇内，谭明学巡查发现落石设置警示，后续二次滑坡千余立方米，因提前转移54名游客居民而无人受伤。\n从鄂西深山到江汉平原，这些遍布荆楚大地的闪光瞬间，共同记录了湖北\n90起成功避险转移的典型案例，成为向全国推荐防灾减灾救灾“教科书”式范本。\n覆盖到村到户的安全网\n一次次化险为夷，不是偶然，是近五万双眼睛织就的生命之网。\n赵正元、王大勇、李民旭\n……这些在千钧一发之际挺身而出的名字，共同拥有一个响亮而沉重的身份——灾害风险隐患信息报送员。在湖北，这样的“安全哨兵”总共有49008名。\n“每个城乡社区至少一名，关键区域设置A、B角，确保任何时间都有人在岗、在状态。”湖北省应急管理厅相关负责人介绍。\n“什么样的山体裂缝是求救信号？何种颜色的河水暗藏杀机？房屋结构的哪些异动是最后警报？”省应急管理厅风险监测和综合减灾处负责人指出，“这些看似基础的知识，在危急时刻，就是生与死的分界线。”\n为此，湖北建立起分级培训机制，省培骨干、市培养县、县教会乡，确保每年每名信息员至少接受一次系统性的\n“回炉淬火”——地质专家、气象专家、水利专家用大量真实案例剖析极端天气的狰狞面目，增强瞬息之间的判断与决策。\n正是这种日复一日的锤炼，铸就了从发现险情到完成转移平均不到\n2小时，最短仅40分钟的“湖北速度”。\n“时间就是生命，”省应急管理厅相关负责人表示，“我们必须为基层抢出足够的准备和应对时间。”\n为此，\n湖北\n省创新构建\n“631”预警递进式叫应机制，如同一套精密运转的防灾时钟。提前6小时发出省级风险预报，划出暴雨落区，宏观布防；3小时短临预警，市州锁定具体区域，指明防范方向；提前1小时发出临灾叫应，市县级部门直接呼叫乡镇、村级责任人，确保指令直达“神经末梢”。\n但预警信息如何穿透\n“最后一米”，确保不漏一户、不落一人？湖北的答案是：建立“不放心户、不放心区域”台账。\n“不放心户”名单上，是独居老人、留守儿童、残疾人……这些灾害中最脆弱的群体。“不放心区域”地图里，标注着地质灾害点、低洼易涝区、危桥险段……这些最容易出问题的地方。\n每个村都有一本这样的\n“生命档案”。一旦预警发布，信息员便会如离弦之箭，扑向“不放心区域”巡查，并叩响每一户“不放心户”的家门。\n“我们村23户‘不放心户’，每家情况我都刻在脑子里。”襄阳市南漳县李庙镇水田坪村党支部书记余修佩说，“谁家几口人，谁行动不便要背，谁有特殊药品要带，谁手机常没电……平时心里有本账，关键时刻才不慌。”\n正是这种将工作做到细微处，将责任落到人头上的精细化管理，让冰冷的预警信息转化为有温度的生命守护。\n每个人都是防线上的\n“哨兵”\n“转，还是不转？何时转？”这道曾令基层干部揪心的选择题，在湖北有了斩钉截铁的答案——“宁可十防九空，不可失防万一”。“应转尽转、应转早转”八字准则，已成为荆楚大地上下的行动自觉。\n8月10日凌晨3时，十堰市郧西县观音镇县沟村。夜雨滂沱，大多数人还在梦中，村支书柯昌国却带着干部深一脚浅一脚地巡查。当手电光定格在胡朝芝家屋后那道细微裂缝时，他的心猛地一紧。\n“裂缝虽小，但我们不敢赌。”柯昌国当机立断，“立即上报，马上转移！”\n5时20分，第一次滑坡轰然而至；7时整，第二次滑坡直接摧毁房屋外墙。从发现险情到灾难发生，仅有两小时的生命窗口。\n“哪怕一丝犹豫，后果都不堪设想。”回忆起来，柯昌国仍心有余悸，“现在我们认准一条：有疑必转，有险即转，宁可多跑十趟空，不冒一次万一险。”\n转移，绝不是简单的人出来就行。去哪住？吃什么？基本生活如何保障？湖北用行动回答：在全省建立标准化安置点，做到\n“十二有”（有饭吃、有干净水喝、有衣穿、有临时安全住所、有卫生淋浴间、有医疗服务、有治安点、有标识、有管理人员、有受灾群众台账、有临时党支部、有文化活动）。\n在宜昌市兴山县昭君镇安置点，干部们把群众当亲人：\n“老人需要的药品、孩子想要的玩具，我们都尽量满足。”真挚的关怀消解了抵触情绪，许多起初不愿离开的群众，看到安置点的周到安排后，从“劝着走”变成了“主动走”。\n更令人欣喜的是，防灾正从\n“政府的事”变成“每个人的事”。在90起成功避险案例中，多起险情是由普通群众首先发现：襄阳科技职业学院三名学生发现麦田火情立即报警，守护了高校和三趟高铁的安全；市民黄向阳报告森林火情，避免了生态灾难；村民成良玉察觉滑坡迹象第一时间上报……\n“人人都是安全员，人人都是吹哨人，这才是最坚固的人民防线。”湖北省应急管理厅相关负责人感慨道。湖北将防灾课堂搬进校园，让安全意识从小扎根；在社区，应急广播、宣传栏、微信群成为科普阵地；在乡村，“院坝会”上用乡音土话讲解避险知识。全民防灾的种子，正在荆楚大地上生根发芽。\n90起成功避险、零伤亡，不是偶然的运气，而是“人民至上、生命至上”理念在荆楚大地的深刻实践，是系统化机制、专业化队伍和务实作风共同作用的结果。其根本支撑，在于湖北始终坚持并深入贯彻“四个宁可”工作原则。\n“宁可十防九空，不能万一失防；宁可事前听骂声，不可事后听哭声；宁可信其有，不可信其无；宁可信其重，不可信其轻。”这“四个宁可”理念，深刻体现了对人民生命安全极端负责的立场。\n在湖北，\n“四个宁可”是融入日常、化为自觉的行动准则。基层干部面对风险隐患，第一反应不再是“要不要转移”，而是“如何更快转移”。一位襄阳乡镇干部表示：“现在省、市明确鼓励果断决策，为敢于负责的干部撑腰，我们干事更有底气。”群众观念也发生显著转变，从过去“劝不动”变为现在“主动撤”，防灾意识深入人心。\n理念落地，依靠机制保障。湖北着力推动防灾减灾工作从\n“被动应对”向“主动防控”转型，构建起一套科学严密的制度体系：预警机制前置化，实现气象、水利、自然资源、应急管理等部门信息实时共享，暴雨橙色预警以上立即启动“叫应”机制；巡查机制网格化，全省划分责任网格，常态巡查与极端天气加密巡查相结合；转移机制标准化，明确转移标准、流程与安置规范；考核机制刚性化，将防灾减灾纳入政绩考核，压实各级责任。\n机制的有效运转，离不开专业队伍的有力执行。湖北持续加强基层应急力量建设，通过专业培训常态化，提升信息员实战能力；装备配备标准化，保障巡查处置基本需要；待遇保障制度化，激发工作积极性。同时，建立专家支撑体系，实现省、市技术力量直插一线，为基层风险研判提供坚实后盾。\n在\n“人民至上、生命至上”的价值天平上，没有“白防”的徒劳，只有“必防”的坚定；没有“多余”的谨慎，只有“生命无价”的敬畏。90起成功避险的背后，是湖北广大党员干部以“时时放心不下”的责任感，把“四个宁可”真正落实到“最后一公里”的担当写照，也为全国推进防灾减灾救灾体系和能力现代化提供了有益的湖北实践。",
+      "publisher": "www.mem.gov.cn（发布主体待核验）",
+      "sourceCredit": "",
+      "sourceId": "web-discovery",
+      "capturedAt": "2026-11-13T07:13:39+00:00",
+      "id": "live-e207edce102c3f4c",
+      "reportTitle": "湖北：鏖战177天 90起成功避险案例向全国推广",
+      "summary": "10月24日，随着今年第7号汉江洪峰平稳过境，2025年湖北汛期画上句号。\n这个汛期，湖北经历了多轮强降雨考验，但交出了一份特殊的“成绩单”：90起成功转移避险案例被应急管理部向全国推荐。",
+      "resourceKind": "report",
+      "section": 0,
+      "province": "湖北",
+      "hazard": "滑坡",
+      "eventDate": "2025-08-11",
+      "evidence": [
+        {
+          "label": "风险发现",
+          "quote": "——几块碎石零散地滚落在地，原本坚固的岩壁上，一道道裂缝清晰可见，宽的有一指多宽。",
+          "confirmed": false
+        },
+        {
+          "label": "提前行动",
+          "quote": "这个汛期，湖北经历了多轮强降雨考验，但交出了一份特殊的“成绩单”：90起成功转移避险案例被应急管理部向全国推荐。",
+          "confirmed": false
+        },
+        {
+          "label": "风险验证",
+          "quote": "“什么样的山体裂缝是求救信号？何种颜色的河水暗藏杀机？房屋结构的哪些异动是最后警报？”省应急管理厅风险监测和综合减灾处负责人指出，“这些看似基础的知识，在危急时刻，就是生与死的分界线。",
+          "confirmed": false
+        },
+        {
+          "label": "避险成效",
+          "quote": "在宜昌秭归郭家坝镇，屈万军收到预警巡查发现山体滑移，封闭交通转移工人，6万立方米滑坡掩埋国道却无一人伤亡；",
+          "confirmed": false
+        }
+      ],
+      "fingerprint": "faa748358b72e8953bcb30567ac53822c5fffd7bacf97a12d893fbd080b1e561",
+      "firstSeenAt": "2026-11-13T07:13:39+00:00",
+      "version": 1
+    },
+    {
       "title": "9起成功案例！2025年贵州省地质灾害避让实践带给我们的启示",
       "url": "https://zrzy.guizhou.gov.cn/wzgb/xwzx/xtyw1/202507/t20250722_88320921.html",
       "publishedAt": "2025-07-22",
@@ -742,7 +791,7 @@
       "publisher": "zrzy.guizhou.gov.cn（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-11-12T07:41:24+00:00",
+      "capturedAt": "2026-11-13T07:13:30+00:00",
       "id": "live-5a0c82fa65e4d06d",
       "reportTitle": "9起成功案例！2025年贵州省地质灾害避让实践带给我们的启示",
       "summary": "2025年5至7月，贵州多地遭遇强降雨天气，引发多起地质灾害。\n得益于各级部门的精准预警、果断处置以及群众的积极配合，成功避让了多起灾害，最大限度保障了人民群众的生命财产安全。",
@@ -829,7 +878,7 @@
       "publisher": "www.mem.gov.cn（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-11-10T07:43:42+00:00",
+      "capturedAt": "2026-11-13T07:13:31+00:00",
       "id": "live-9a629bb85c30cb12",
       "reportTitle": "应急管理部公布2024年度全国成功避险避灾典型案例",
       "summary": "2024年7月8日至29日，川西高原接连遭遇两轮强降水天气过程，降雨持续时间长、强度大，多个站点突破历史极值。\n四川省甘孜州严格落实“喊醒叫应”机制，坚持运用“三查”和“三有三通道”工作法，组织广大基层干部和灾害风险隐患信息报送员查风险、除隐患，坚决执行“三避让”和“三个紧急撤离”刚性要求。",
@@ -862,7 +911,8 @@
       ],
       "fingerprint": "1f802cbebd06743670325a79f48abf8946ab9f56056ea9c90e3100d5fdd88863",
       "firstSeenAt": "2026-11-10T07:43:42+00:00",
-      "version": 1
+      "version": 1,
+      "history": []
     },
     {
       "title": "6月中旬浙闽交界洪涝地质灾害成功避险案例：加大夜巡频次，确保国道项目施工人员安全",
@@ -872,7 +922,7 @@
       "publisher": "www.mem.gov.cn（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-11-10T07:43:42+00:00",
+      "capturedAt": "2026-11-13T07:13:31+00:00",
       "id": "live-86b8ff56d00b786f",
       "reportTitle": "应急管理部公布2024年度全国成功避险避灾典型案例",
       "summary": "2024年6月11日至19日，汛期叠加梅雨季，浙江南部、福建北部等地持续出现强降水过程，局地累计雨量大、叠加效应强、致灾风险高。\n浙江、福建两地应急管理部门积极应对，加强联合会商研判，发挥基层灾害风险隐患信息报送员“前哨”和专业技术力量作用，聚焦工地、学校、医院等重点场所和房前屋后、高陡边坡、水库山塘等重点部位开展巡查排查。",
@@ -905,7 +955,8 @@
       ],
       "fingerprint": "ad96811b89571cab2ba031c6718ad8d22e590eede722d739a408a7818721a2be",
       "firstSeenAt": "2026-11-10T07:43:42+00:00",
-      "version": 1
+      "version": 1,
+      "history": []
     },
     {
       "title": "伏汛期北京、河北暴雨洪涝灾害成功避险案例：坚持底线思维，确保山区涉险群众应转尽转",
@@ -958,7 +1009,7 @@
       "publisher": "www.mem.gov.cn（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-11-10T07:43:42+00:00",
+      "capturedAt": "2026-11-13T07:13:31+00:00",
       "id": "live-74b03329a1627fb0",
       "reportTitle": "应急管理部公布2024年度全国成功避险避灾典型案例",
       "summary": "2024年8月6日至11日和17日至22日，京津冀地区遭遇两轮强降雨天气过程，洪涝地质灾害风险高。\n北京、河北各级应急管理部门坚持预防为主，紧盯山洪地灾危险区，把灾害风险隐患识别处置贯穿防汛全过程，提前落实防范措施，成功避险转移1245人。",
@@ -991,7 +1042,8 @@
       ],
       "fingerprint": "de2ee2b526b7fbf8720428e92d885aa5d1c67d8010d4adb41b73dc32b75d3259",
       "firstSeenAt": "2026-11-10T07:43:42+00:00",
-      "version": 1
+      "version": 1,
+      "history": []
     },
     {
       "title": "8月8日宁夏吴忠山洪灾害成功避险案例：果断关停撤转，保障村民和作业人员安全",
@@ -1087,7 +1139,7 @@
       "publisher": "www.mem.gov.cn（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-11-10T07:43:42+00:00",
+      "capturedAt": "2026-11-13T07:13:31+00:00",
       "id": "live-411d0e0874f3b976",
       "reportTitle": "应急管理部公布2024年度全国成功避险避灾典型案例",
       "summary": "2024年8月6日至8日，宁夏全域出现强降水过程，降雨来势猛、洪水流速大，洪涝地质灾害风险高。\n宁夏回族自治区各级应急管理部门坚持靠前预防，不间断、全方位组织对山洪沟道、过水桥涵、重点在建工程等重点部位开展隐患排查，坚决果断转移危险区群众。",
@@ -1120,7 +1172,8 @@
       ],
       "fingerprint": "e1233ff655a3013c92141f75d4bed9c8f30e93d060153a20bb834062b9e60e4a",
       "firstSeenAt": "2026-11-10T07:43:42+00:00",
-      "version": 1
+      "version": 1,
+      "history": []
     },
     {
       "title": "6月中旬浙闽交界洪涝地质灾害成功避险案例：加大夜巡频次，确保国道项目施工人员安全",
@@ -1173,7 +1226,7 @@
       "publisher": "www.mem.gov.cn（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-11-10T07:43:42+00:00",
+      "capturedAt": "2026-11-13T07:13:31+00:00",
       "id": "live-264ad6368b9cd781",
       "reportTitle": "应急管理部公布2024年度全国成功避险避灾典型案例",
       "summary": "2024年6月下旬，云贵高原多地遭遇持续强降水天气，叠加当地喀斯特地貌环境，洪涝地质灾害成灾快、风险高。\n贵州省应急管理部门根据地质灾害多发特点，充分利用第一次全国自然灾害综合风险普查成果，对重点隐患点和风险区开展跨区域、跨部门巡查排查，3个地州的5个县（市、区）上报避险个例6起，实现106户341人成功避险。",
@@ -1206,7 +1259,8 @@
       ],
       "fingerprint": "b8edc66806bebd41a6d6e5eab13793c1057c34f066ce9fc0200ea1bdbafde6f5",
       "firstSeenAt": "2026-11-10T07:43:42+00:00",
-      "version": 1
+      "version": 1,
+      "history": []
     },
     {
       "title": "湖南平江“7·1”芭蕉村滑坡灾害避险",
@@ -1216,7 +1270,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-f6f5c817755e38e5",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年7月1日19时，受持续强降雨影响，湖南省岳阳市平江县童市镇芭蕉村新屋组发生大面积山体滑坡，方量达200万立方米，属于大型土岩混合滑坡。\n滑坡前缘的11户房屋全部被掩埋，滑坡体堆积在沟道内，形成了水体方量达5万立方米的堰塞湖，导致7户房屋被淹、道路中断、河道堵塞，电力、通信等基础设施损毁严重。",
@@ -1260,7 +1314,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-dff68162462d0011",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年6月16日1时30分，福建省南平市松溪县茶平乡吴山头村发生山体滑坡，规模约5万立方米，造成28栋房屋倒塌或损毁。\n因提前两天将村民转移避险，未造成人员伤亡。",
@@ -1304,7 +1358,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-c1b55d3a29d5dd2b",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年6月15日19时30分左右，广西壮族自治区百色市德保县敬德镇暮洞村曲江屯、根梅屯、堂洞屯（三屯同位于一处冲沟口处）发生一起泥石流地质灾害。\n灾害发生前，当地政府组织紧急撤离，受威胁的18人实现成功避险。",
@@ -1348,7 +1402,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-b38451b6f2bf7f90",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "受持续强降雨影响，2024年7月11日3时27分，四川省万源市罗文镇团堡梁村解放湾组改板湾发生高位岩质滑坡，造成33户173间房屋严重受损、3户16间房屋被掩埋，两条通村水泥路损毁600米，输电线路铁塔1座受损。\n因提前避险转移受威胁住户22户34人，确保了当地群众生命安全。",
@@ -1392,7 +1446,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-8c50b4eb0ac1c244",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年7月10日11时，湖北省秭归县沙镇溪镇三星店村香山路张家红屋场发生滑坡，造成香山路损毁342米、张家红房屋滑动20余米，因提前避险撤离74户206人并封闭道路，无人员伤亡，避免直接及间接经济损失约5000万元。\n沙镇溪镇后方区域（包含张家红屋场滑坡区）被划分为极高风险区后，秭归县自然资源和规划局及沙镇溪镇人民政府依据风险区防控建议对该风险区居民进行地质灾害宣传和培训，并安排专人定期对该风险区进行巡查监测。",
@@ -1436,7 +1490,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-7bb5bca42378b9d9",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年9月9日22时30分，受连续强降雨天气影响，云南省河口县河口镇南屏社区子丫小组地质灾害隐患点突发滑坡，造成居民房屋36户79 间受损。\n由于受威胁群众36户74人提前转移避险，未造成人员伤亡。",
@@ -1480,7 +1534,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-64ee4f5197a7dca8",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年8月12日凌晨，陕西省岚皋县城关镇四坪社区王家湾发生滑坡，导致一栋2层4间房的民房被完全冲垮掩埋，另1栋3层楼房与6层楼房的房屋背部被滑土半包围。\n因受威胁人员提前撤离，实现成功避险。",
@@ -1524,7 +1578,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-549854da1903b42c",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年7月5日22时至6日凌晨，受持续强降雨影响，西藏自治区定日县绒辖乡邦色沟暴发泥石流灾害，导致通往绒辖乡政府驻地道路交通、电力、通信等中断，公路路基、桥梁、涵洞等设施不同程度受损，得益于及时预警和提前转移群众，未造成人员伤亡。\n2024年7月，位于喜马拉雅山脉南坡的定日县绒辖乡出现持续降雨天气，7月2日~5日，持续3天的强降雨引起了群测群防员和沟口居民的警惕，发现沟内水流断流等异常后，第一时间反映上报。",
@@ -1568,7 +1622,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-1a46974b0ff95e6f",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年6月28日凌晨，受强降雨影响，重庆市武隆区长坝镇鹅冠村叶家堡组长田坎滑坡发生灾情，造成坡体上3 栋房屋损毁，直接经济损失约 120万元。\n因提前撤离受威胁居民32户55人，未造成人员伤亡。",
@@ -1612,7 +1666,7 @@
       "publisher": "中国地质调查局（来源：中国自然资源报）",
       "sourceCredit": "中国自然资源报",
       "sourceId": "cgs-2024-cases",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-1656438993941dd5",
       "reportTitle": "2024年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "2024年7月25日8时20分，四川省乐山市沙湾区牛石镇朝山村3组红岩凼附近山体发生大规模滑坡，形成链式灾害，造成5户村民房屋倒塌，10户民房及1处养猪场房屋受损。\n由于巡查人员发现险情及时，提前疏散转移33户77人，成功避免15户35人因灾伤亡，避免直接经济损失50 万元。",
@@ -1656,7 +1710,7 @@
       "publisher": "中华人民共和国应急管理部",
       "sourceCredit": "",
       "sourceId": "mem-xian",
-      "capturedAt": "2026-11-12T07:40:53+00:00",
+      "capturedAt": "2026-11-13T07:13:08+00:00",
       "id": "live-5fd06988d6aa1077",
       "reportTitle": "陕西西安提前成功预警崩塌事故 人员安全撤离",
       "summary": "2月23日10时57分，\n西安市地质灾害监测预警信息平台发出报警，安装于西安市临潼区斜口镇白杨树村的地质灾害监测仪器设备传输回的监测数据异常，疑似现场地表发生变形，分析判断有发生崩塌事故的险情征兆。",
@@ -2476,7 +2530,7 @@
       "publisher": "www.sohu.com（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-11-12T07:41:02+00:00",
+      "capturedAt": "2026-11-13T07:13:15+00:00",
       "id": "live-5672a740729de82b",
       "reportTitle": "2025年度全国地质灾害成功避险十大典型案例揭晓",
       "summary": "今天是第18个全国防灾减灾日，自然资源部地质勘查管理司公布了2025年度全国地质灾害成功避险十大典型案例，以期助力各地从案例中学习经验、查找不足，巩固提升基层防灾减灾能力与实效。\n（案例按省级行政区划排序）",
@@ -2753,7 +2807,7 @@
       "publisher": "sichuan.scol.com.cn（发布主体待核验）",
       "sourceCredit": "",
       "sourceId": "web-discovery",
-      "capturedAt": "2026-11-12T07:41:23+00:00",
+      "capturedAt": "2026-11-13T07:13:35+00:00",
       "id": "live-134182846685e02b",
       "reportTitle": "科学预警，提前转移！四川公布一批成功避险避灾典型案例丨安全四川 共同行动",
       "summary": "# 科学预警，提前转移！四川公布一批成功避险避灾典型案例丨安全四川 共同行动\n> **核心摘要**：四川省应急管理厅发布10个成功避险避灾典型案例，涵盖阿坝、甘孜、泸州、自贡、巴中、凉山、宜宾等地。",
@@ -2936,6 +2990,324 @@
     }
   ],
   "runs": [
+    {
+      "id": "crawl-2026-11-13T07:14:16+00:00",
+      "startedAt": "2026-11-13T07:13:06+00:00",
+      "finishedAt": "2026-11-13T07:14:16+00:00",
+      "query": "地质灾害 成功避险",
+      "mode": "all",
+      "newRecords": 1,
+      "changedRecords": 0,
+      "successfulSources": 11,
+      "failedSources": 4,
+      "results": [
+        {
+          "sourceId": "cgs-2024-cases",
+          "name": "中国地质调查局·2024年十大避险案例",
+          "url": "https://www.cgs.gov.cn/ywdt/ddyw/202505/t20250512_820403.html",
+          "startedAt": "2026-11-13T07:13:06+00:00",
+          "finishedAt": "2026-11-13T07:13:08+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 10,
+          "failures": []
+        },
+        {
+          "sourceId": "cgs-news",
+          "name": "中国地质调查局·地调要闻",
+          "url": "https://www.cgs.gov.cn/ywdt/ddyw/",
+          "startedAt": "2026-11-13T07:13:08+00:00",
+          "finishedAt": "2026-11-13T07:13:12+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 3,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "chinanews-society-rss",
+          "name": "中新网·社会新闻订阅",
+          "url": "https://www.chinanews.com.cn/rss/society.xml",
+          "startedAt": "2026-11-13T07:13:25+00:00",
+          "finishedAt": "2026-11-13T07:13:26+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": [],
+          "engine": "TrendRadar RSSFetcher"
+        },
+        {
+          "sourceId": "cnhubei-local",
+          "name": "荆楚网·湖北日报网",
+          "url": "https://www.cnhubei.com/",
+          "startedAt": "2026-11-13T07:13:22+00:00",
+          "finishedAt": "2026-11-13T07:13:23+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "cqnews-county",
+          "name": "华龙网·区县新闻",
+          "url": "https://www.cqnews.net/web/column/col11322.html",
+          "startedAt": "2026-11-13T07:13:19+00:00",
+          "finishedAt": "2026-11-13T07:13:20+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "fjsen-local",
+          "name": "东南网·福建地方新闻",
+          "url": "https://www.fjsen.com/",
+          "startedAt": "2026-11-13T07:13:23+00:00",
+          "finishedAt": "2026-11-13T07:13:23+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "hunan-news",
+          "name": "湖南省自然资源厅·市县动态",
+          "url": "https://zrzyt.hunan.gov.cn/xxgk/gzdt/sxxx/",
+          "startedAt": "2026-11-13T07:13:09+00:00",
+          "finishedAt": "2026-11-13T07:13:09+00:00",
+          "status": "failure",
+          "httpStatus": 0,
+          "pagesScanned": 0,
+          "recordsFound": 0,
+          "failures": [
+            {
+              "url": "https://zrzyt.hunan.gov.cn/xxgk/gzdt/sxxx/",
+              "message": "HTTP 0; curl: (35) TLS connect error: error:0A000132:SSL routines::bad ecpoint"
+            }
+          ]
+        },
+        {
+          "sourceId": "mem-xian",
+          "name": "应急管理部·西安崩塌预警报道",
+          "url": "https://www.mem.gov.cn/xw/gdyj/202303/t20230302_443868.shtml",
+          "startedAt": "2026-11-13T07:13:06+00:00",
+          "finishedAt": "2026-11-13T07:13:08+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 1,
+          "failures": []
+        },
+        {
+          "sourceId": "newssc-sichuan",
+          "name": "四川新闻网",
+          "url": "https://www.newssc.org/",
+          "startedAt": "2026-11-13T07:13:29+00:00",
+          "finishedAt": "2026-11-13T07:13:29+00:00",
+          "status": "failure",
+          "httpStatus": 0,
+          "pagesScanned": 0,
+          "recordsFound": 0,
+          "failures": [
+            {
+              "url": "https://www.newssc.org/",
+              "message": "HTTP 0; curl: (28) Connection timed out after 10001 milliseconds"
+            }
+          ]
+        },
+        {
+          "sourceId": "rednet-hunan",
+          "name": "红网·湖南频道",
+          "url": "https://hn.rednet.cn/",
+          "startedAt": "2026-11-13T07:13:12+00:00",
+          "finishedAt": "2026-11-13T07:13:13+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "sc-news",
+          "name": "四川省自然资源厅·公示公告",
+          "url": "https://dnr.sc.gov.cn/scdnr/scgsgg/",
+          "startedAt": "2026-11-13T07:13:19+00:00",
+          "finishedAt": "2026-11-13T07:13:19+00:00",
+          "status": "failure",
+          "httpStatus": 0,
+          "pagesScanned": 0,
+          "recordsFound": 0,
+          "failures": [
+            {
+              "url": "https://dnr.sc.gov.cn/scdnr/scgsgg/",
+              "message": "HTTP 0; curl: (28) Connection timed out after 10001 milliseconds"
+            }
+          ]
+        },
+        {
+          "sourceId": "scol-sichuan",
+          "name": "四川在线·四川新闻",
+          "url": "https://sichuan.scol.com.cn/",
+          "startedAt": "2026-11-13T07:13:13+00:00",
+          "finishedAt": "2026-11-13T07:13:19+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "suggest-904d74b806b9",
+          "name": "贵州省自然资源厅",
+          "url": "https://zrzy.guizhou.gov.cn/wzgb/xwzx/xtyw1/",
+          "startedAt": "2026-11-13T07:13:23+00:00",
+          "finishedAt": "2026-11-13T07:13:25+00:00",
+          "status": "success",
+          "httpStatus": 200,
+          "pagesScanned": 1,
+          "recordsFound": 0,
+          "failures": []
+        },
+        {
+          "sourceId": "web-discovery",
+          "name": "公开网页搜索发现",
+          "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9",
+          "startedAt": "2026-11-13T07:13:06+00:00",
+          "finishedAt": "2026-11-13T07:13:54+00:00",
+          "status": "partial",
+          "httpStatus": 200,
+          "pagesScanned": 21,
+          "recordsFound": 11,
+          "failures": [
+            {
+              "url": "https://www.hunan.gov.cn/zqt/zcsd/202609/t20260928_34072906.html",
+              "message": "HTTP 0; curl: (35) TLS connect error: error:0A000132:SSL routines::bad ecpoint"
+            },
+            {
+              "url": "https://news.cctv.cn/2026/09/24/ARTIVhT0kkCTu8Ng7K16AAlB260924.shtml",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://www.toutiao.com/article/7638876440372576831/",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://baike.baidu.com/item/2025%E5%B9%B4%E5%BA%A6%E5%85%A8%E5%9B%BD%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9%E5%8D%81%E5%A4%A7%E5%85%B8%E5%9E%8B%E6%A1%88%E4%BE%8B/67778264",
+              "message": "HTTP 403; 请求未成功"
+            },
+            {
+              "url": "https://www.sc.gov.cn/10462/zfwjts/2026/8/13/b922e36b536e4ebdae6463bf797ce9bc.shtml",
+              "message": "HTTP 0; curl: (28) Connection timed out after 10002 milliseconds"
+            },
+            {
+              "url": "https://news.cctv.com/2026/08/02/ARTIe1b6qK0XUr3FhiecKks4260802.shtml",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://www.toutiao.com/article/7639180402153849371/",
+              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
+            },
+            {
+              "url": "https://wenku.baidu.com/view/c7c782c1bf4cf7ec4afe04a1b0717fd5360cb2a8.html",
+              "message": "HTTP 403; 请求未成功"
+            },
+            {
+              "url": "https://zrzyt.hunan.gov.cn/zrzyt/fzyx/202407/t20240702_33344308.html",
+              "message": "HTTP 0; curl: (35) TLS connect error: error:0A000132:SSL routines::bad ecpoint"
+            },
+            {
+              "url": "https://zrgh.baoding.gov.cn/bdzrzy/ywpd/qt/zhyf/101251581127799357440.html",
+              "message": "HTTP 0; curl: (28) Connection timed out after 10002 milliseconds"
+            },
+            {
+              "url": "https://dzj.henan.gov.cn/2026/09-28/9277.html",
+              "message": "HTTP 403; 请求未成功"
+            }
+          ],
+          "queries": [
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险",
+              "page": 1,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&s=0",
+              "status": "success",
+              "returned": 10,
+              "relevant": 10
+            },
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险",
+              "page": 2,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&s=30",
+              "status": "success",
+              "returned": 10,
+              "relevant": 10
+            },
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险 提前撤离 转移",
+              "page": 1,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%8F%90%E5%89%8D%E6%92%A4%E7%A6%BB+%E8%BD%AC%E7%A7%BB&s=0",
+              "status": "success",
+              "returned": 10,
+              "relevant": 10
+            },
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险 提前撤离 转移",
+              "page": 2,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%8F%90%E5%89%8D%E6%92%A4%E7%A6%BB+%E8%BD%AC%E7%A7%BB&s=30",
+              "status": "success",
+              "returned": 10,
+              "relevant": 9
+            },
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险 成功预警 避险",
+              "page": 1,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%88%90%E5%8A%9F%E9%A2%84%E8%AD%A6+%E9%81%BF%E9%99%A9&s=0",
+              "status": "success",
+              "returned": 10,
+              "relevant": 10
+            },
+            {
+              "provider": "DuckDuckGo",
+              "query": "地质灾害 成功避险 成功预警 避险",
+              "page": 2,
+              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%88%90%E5%8A%9F%E9%A2%84%E8%AD%A6+%E9%81%BF%E9%99%A9&s=30",
+              "status": "success",
+              "returned": 10,
+              "relevant": 10
+            }
+          ],
+          "searchQuery": "地质灾害 成功避险",
+          "searchProvider": "Web search（DuckDuckGo / 搜狗）",
+          "discoveredLinks": 20
+        },
+        {
+          "sourceId": "yunnan-local",
+          "name": "云南网·地方新闻",
+          "url": "https://www.yunnan.cn/",
+          "startedAt": "2026-11-13T07:13:22+00:00",
+          "finishedAt": "2026-11-13T07:13:22+00:00",
+          "status": "failure",
+          "httpStatus": 403,
+          "pagesScanned": 0,
+          "recordsFound": 0,
+          "failures": [
+            {
+              "url": "https://www.yunnan.cn/",
+              "message": "HTTP 403; 请求未成功"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "crawl-2026-11-12T07:42:03+00:00",
       "startedAt": "2026-11-12T07:40:51+00:00",
@@ -12600,622 +12972,6 @@
           "url": "https://www.yunnan.cn/",
           "startedAt": "2026-10-18T05:05:48+00:00",
           "finishedAt": "2026-10-18T05:05:48+00:00",
-          "status": "failure",
-          "httpStatus": 403,
-          "pagesScanned": 0,
-          "recordsFound": 0,
-          "failures": [
-            {
-              "url": "https://www.yunnan.cn/",
-              "message": "HTTP 403; 请求未成功"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "crawl-2026-10-18T04:33:16+00:00",
-      "startedAt": "2026-10-18T04:32:10+00:00",
-      "finishedAt": "2026-10-18T04:33:16+00:00",
-      "query": "地质灾害 成功避险",
-      "mode": "all",
-      "newRecords": 0,
-      "changedRecords": 0,
-      "successfulSources": 16,
-      "failedSources": 4,
-      "results": [
-        {
-          "sourceId": "cgs-2024-cases",
-          "name": "中国地质调查局·2024年十大避险案例",
-          "url": "https://www.cgs.gov.cn/ywdt/ddyw/202505/t20250512_820403.html",
-          "startedAt": "2026-10-18T04:32:15+00:00",
-          "finishedAt": "2026-10-18T04:32:16+00:00",
-          "status": "success",
-          "httpStatus": 200,
-          "pagesScanned": 1,
-          "recordsFound": 10,
-          "failures": []
-        },
-        {
-          "sourceId": "cgs-news",
-          "name": "中国地质调查局·地调要闻",
-          "url": "https://www.cgs.gov.cn/ywdt/ddyw/",
-          "startedAt": "2026-10-18T04:32:17+00:00",
-          "finishedAt": "2026-10-18T04:32:19+00:00",
-          "status": "success",
-          "httpStatus": 200,
-          "pagesScanned": 1,
-          "recordsFound": 0,
-          "failures": []
-        },
-        {
-          "sourceId": "chinanews-society-rss",
-          "name": "中新网·社会新闻订阅",
-          "url": "https://www.chinanews.com.cn/rss/society.xml",
-          "startedAt": "2026-10-18T04:32:34+00:00",
-          "finishedAt": "2026-10-18T04:32:35+00:00",
-          "status": "success",
-          "httpStatus": 200,
-          "pagesScanned": 1,
-          "recordsFound": 0,
-          "failures": [],
-          "engine": "TrendRadar RSSFetcher"
-        },
-        {
-          "sourceId": "cnhubei-local",
-          "name": "荆楚网·湖北日报网",
-          "url": "https://www.cnhubei.com/",
-          "startedAt": "2026-10-18T04:32:31+00:00",
-          "finishedAt": "2026-10-18T04:32:32+00:00",
-          "status": "success",
-          "httpStatus": 200,
-          "pagesScanned": 1,
-          "recordsFound": 0,
-          "failures": []
-        },
-        {
-          "sourceId": "cqnews-county",
-          "name": "华龙网·区县新闻",
-          "url": "https://www.cqnews.net/web/column/col11322.html",
-          "startedAt": "2026-10-18T04:32:29+00:00",
-          "finishedAt": "2026-10-18T04:32:29+00:00",
-          "status": "success",
-          "httpStatus": 200,
-          "pagesScanned": 1,
-          "recordsFound": 0,
-          "failures": []
-        },
-        {
-          "sourceId": "fjsen-local",
-          "name": "东南网·福建地方新闻",
-          "url": "https://www.fjsen.com/",
-          "startedAt": "2026-10-18T04:32:32+00:00",
-          "finishedAt": "2026-10-18T04:32:32+00:00",
-          "status": "success",
-          "httpStatus": 200,
-          "pagesScanned": 1,
-          "recordsFound": 0,
-          "failures": []
-        },
-        {
-          "sourceId": "hunan-news",
-          "name": "湖南省自然资源厅·市县动态",
-          "url": "https://zrzyt.hunan.gov.cn/xxgk/gzdt/sxxx/",
-          "startedAt": "2026-10-18T04:32:19+00:00",
-          "finishedAt": "2026-10-18T04:32:19+00:00",
-          "status": "failure",
-          "httpStatus": 0,
-          "pagesScanned": 0,
-          "recordsFound": 0,
-          "failures": [
-            {
-              "url": "https://zrzyt.hunan.gov.cn/xxgk/gzdt/sxxx/",
-              "message": "HTTP 0; curl: (35) OpenSSL/3.0.13: error:0A000132:SSL routines::bad ecpoint"
-            }
-          ]
-        },
-        {
-          "sourceId": "media-rule-3e8911dd078e",
-          "name": "视频检索·地质灾害五步避险法_哔哩哔哩_bilibili",
-          "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%E4%BA%94%E6%AD%A5%E9%81%BF%E9%99%A9%E6%B3%95_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9_bilibili&platform=bilibili",
-          "startedAt": "2026-10-18T04:32:37+00:00",
-          "finishedAt": "2026-10-18T04:32:38+00:00",
-          "status": "partial",
-          "httpStatus": 0,
-          "pagesScanned": 1,
-          "recordsFound": 0,
-          "failures": [
-            {
-              "url": "https://api.bilibili.com/x/web-interface/search/type?search_type=video&keyword=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%E4%BA%94%E6%AD%A5%E9%81%BF%E9%99%A9%E6%B3%95_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9_bilibili&page=1",
-              "message": "HTTP 412; 请求未成功"
-            }
-          ],
-          "queries": [
-            {
-              "provider": "B站搜索",
-              "query": "地质灾害五步避险法_哔哩哔哩_bilibili",
-              "url": "https://api.bilibili.com/x/web-interface/search/type?search_type=video&keyword=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%E4%BA%94%E6%AD%A5%E9%81%BF%E9%99%A9%E6%B3%95_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9_bilibili&page=1",
-              "status": "failure",
-              "returned": 0,
-              "relevant": 0,
-              "error": "HTTP 412; 请求未成功"
-            }
-          ],
-          "engine": "yt-dlp/视频发现",
-          "discoveredLinks": 0,
-          "sourceSuggestions": []
-        },
-        {
-          "sourceId": "mem-xian",
-          "name": "应急管理部·西安崩塌预警报道",
-          "url": "https://www.mem.gov.cn/xw/gdyj/202303/t20230302_443868.shtml",
-          "startedAt": "2026-10-18T04:32:16+00:00",
-          "finishedAt": "2026-10-18T04:32:17+00:00",
-          "status": "success",
-          "httpStatus": 200,
-          "pagesScanned": 1,
-          "recordsFound": 1,
-          "failures": []
-        },
-        {
-          "sourceId": "newssc-sichuan",
-          "name": "四川新闻网",
-          "url": "https://www.newssc.org/",
-          "startedAt": "2026-10-18T04:32:35+00:00",
-          "finishedAt": "2026-10-18T04:32:35+00:00",
-          "status": "failure",
-          "httpStatus": 0,
-          "pagesScanned": 0,
-          "recordsFound": 0,
-          "failures": [
-            {
-              "url": "https://www.newssc.org/",
-              "message": "HTTP 0; curl: (28) Failed to connect to www.newssc.org port 443 after 10002 ms: Timeout was reached"
-            }
-          ]
-        },
-        {
-          "sourceId": "rednet-hunan",
-          "name": "红网·湖南频道",
-          "url": "https://hn.rednet.cn/",
-          "startedAt": "2026-10-18T04:32:19+00:00",
-          "finishedAt": "2026-10-18T04:32:21+00:00",
-          "status": "success",
-          "httpStatus": 200,
-          "pagesScanned": 2,
-          "recordsFound": 6,
-          "failures": []
-        },
-        {
-          "sourceId": "sc-news",
-          "name": "四川省自然资源厅·公示公告",
-          "url": "https://dnr.sc.gov.cn/scdnr/scgsgg/",
-          "startedAt": "2026-10-18T04:32:29+00:00",
-          "finishedAt": "2026-10-18T04:32:29+00:00",
-          "status": "failure",
-          "httpStatus": 0,
-          "pagesScanned": 0,
-          "recordsFound": 0,
-          "failures": [
-            {
-              "url": "https://dnr.sc.gov.cn/scdnr/scgsgg/",
-              "message": "HTTP 0; curl: (28) Failed to connect to dnr.sc.gov.cn port 443 after 10002 ms: Timeout was reached"
-            }
-          ]
-        },
-        {
-          "sourceId": "scol-sichuan",
-          "name": "四川在线·四川新闻",
-          "url": "https://sichuan.scol.com.cn/",
-          "startedAt": "2026-10-18T04:32:21+00:00",
-          "finishedAt": "2026-10-18T04:32:25+00:00",
-          "status": "success",
-          "httpStatus": 200,
-          "pagesScanned": 1,
-          "recordsFound": 0,
-          "failures": []
-        },
-        {
-          "sourceId": "source-f75fb0a1-a6bf-49ca-a552-376389c4decb",
-          "name": "地灾短视频关键词监测",
-          "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%20%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9",
-          "startedAt": "2026-10-18T04:32:35+00:00",
-          "finishedAt": "2026-10-18T04:32:37+00:00",
-          "status": "partial",
-          "httpStatus": 0,
-          "pagesScanned": 3,
-          "recordsFound": 0,
-          "failures": [
-            {
-              "url": "https://api.bilibili.com/x/web-interface/search/type?search_type=video&keyword=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&page=1",
-              "message": "HTTP 412; 请求未成功"
-            },
-            {
-              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+site%3Adouyin.com%2Fvideo+OR+site%3Abilibili.com%2Fvideo",
-              "message": "HTTP 202; 请求未成功"
-            },
-            {
-              "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+site%3Adouyin.com%2Fvideo+OR+site%3Abilibili.com%2Fvideo",
-              "message": "未发现可解析视频链接，可能被验证页限制"
-            }
-          ],
-          "queries": [
-            {
-              "provider": "B站搜索",
-              "query": "地质灾害 成功避险",
-              "url": "https://api.bilibili.com/x/web-interface/search/type?search_type=video&keyword=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&page=1",
-              "status": "failure",
-              "returned": 0,
-              "relevant": 0,
-              "error": "HTTP 412; 请求未成功"
-            },
-            {
-              "provider": "DuckDuckGo视频发现",
-              "query": "地质灾害 成功避险 site:douyin.com/video OR site:bilibili.com/video",
-              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+site%3Adouyin.com%2Fvideo+OR+site%3Abilibili.com%2Fvideo",
-              "status": "failure",
-              "returned": 0,
-              "relevant": 0,
-              "error": "HTTP 202; 请求未成功"
-            },
-            {
-              "provider": "搜狗视频发现",
-              "query": "地质灾害 成功避险 site:douyin.com/video OR site:bilibili.com/video",
-              "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+site%3Adouyin.com%2Fvideo+OR+site%3Abilibili.com%2Fvideo",
-              "status": "partial",
-              "returned": 0,
-              "relevant": 0,
-              "error": "未发现可解析视频链接，可能被验证页限制"
-            }
-          ],
-          "engine": "yt-dlp/视频发现",
-          "discoveredLinks": 0,
-          "sourceSuggestions": []
-        },
-        {
-          "sourceId": "source-f7ea7dd2-90aa-4cc0-b532-a25dcb7ce3c6",
-          "name": "地灾公众号关键词监测",
-          "url": "https://weixin.sogou.com/weixin?type=2&query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%20%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9",
-          "startedAt": "2026-10-18T04:32:35+00:00",
-          "finishedAt": "2026-10-18T04:32:43+00:00",
-          "status": "partial",
-          "httpStatus": 0,
-          "pagesScanned": 1,
-          "recordsFound": 0,
-          "failures": [
-            {
-              "url": "https://weixin.sogou.com/weixin?type=2&query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&page=1",
-              "message": "微信搜索跳转未解析为公众号原文，可能需要验证"
-            }
-          ],
-          "queries": [
-            {
-              "provider": "搜狗微信",
-              "query": "地质灾害 成功避险",
-              "url": "https://weixin.sogou.com/weixin?type=2&query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&page=1",
-              "status": "partial",
-              "returned": 10,
-              "relevant": 0,
-              "error": "微信搜索跳转未解析为公众号原文，可能需要验证",
-              "unresolved": [
-                {
-                  "title": "四川出台 地质灾害 成功避险 奖励规定,最高奖5万元!",
-                  "accountName": "四川自然资源",
-                  "reason": "微信搜索跳转未解析为公众号原文，可能需要验证"
-                },
-                {
-                  "title": "最高5万元!云南出台 地质灾害 成功避险 奖励规定",
-                  "accountName": "昆明应急",
-                  "reason": "微信搜索跳转未解析为公众号原文，可能需要验证"
-                },
-                {
-                  "title": "2021年全国 地质灾害 成功避险 十大案例",
-                  "accountName": "康巴传媒",
-                  "reason": "微信搜索跳转未解析为公众号原文，可能需要验证"
-                }
-              ]
-            }
-          ],
-          "engine": "公众号适配",
-          "discoveredLinks": 0,
-          "sourceSuggestions": []
-        },
-        {
-          "sourceId": "suggest-904d74b806b9",
-          "name": "贵州省自然资源厅",
-          "url": "https://zrzy.guizhou.gov.cn/wzgb/xwzx/xtyw1/",
-          "startedAt": "2026-10-18T04:32:32+00:00",
-          "finishedAt": "2026-10-18T04:32:34+00:00",
-          "status": "success",
-          "httpStatus": 200,
-          "pagesScanned": 1,
-          "recordsFound": 0,
-          "failures": []
-        },
-        {
-          "sourceId": "video-discovery",
-          "name": "短视频主动检索",
-          "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E8%A7%86%E9%A2%91",
-          "startedAt": "2026-10-18T04:32:10+00:00",
-          "finishedAt": "2026-10-18T04:32:15+00:00",
-          "status": "partial",
-          "httpStatus": 200,
-          "pagesScanned": 4,
-          "recordsFound": 3,
-          "failures": [
-            {
-              "url": "https://www.bilibili.com/video/BV1814y1B7Bd/",
-              "message": "已取得视频信息，但无可用字幕；平台尚未配置音频转写，保留待补证线索"
-            },
-            {
-              "url": "https://www.bilibili.com/video/BV13s411B7fx/",
-              "message": "已取得视频信息，但无可用字幕；平台尚未配置音频转写，保留待补证线索"
-            },
-            {
-              "url": "https://www.bilibili.com/video/BV1QGhJ69EAe/",
-              "message": "已取得视频信息，但无可用字幕；平台尚未配置音频转写，保留待补证线索"
-            }
-          ],
-          "queries": [
-            {
-              "provider": "B站搜索",
-              "query": "地质灾害 成功避险",
-              "url": "https://api.bilibili.com/x/web-interface/search/type?search_type=video&keyword=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&page=1",
-              "status": "success",
-              "returned": 20,
-              "relevant": 3
-            }
-          ],
-          "engine": "yt-dlp/视频发现",
-          "discoveredLinks": 3,
-          "sourceSuggestions": [
-            {
-              "id": "media-rule-5e2c34a9ff2d",
-              "status": "ready",
-              "reason": "添加为关键词检索规则，持续发现公开材料；不代表账号全量订阅。",
-              "evidenceUrl": "https://www.bilibili.com/video/BV1814y1B7Bd/",
-              "evidenceTitle": "黑龙江省气象局发布地质灾害气象风险红色预警8.4_哔哩哔哩_bilibili",
-              "source": {
-                "id": "media-rule-5e2c34a9ff2d",
-                "name": "视频检索·黑龙江省气象局发布地质灾害气象风险红色预警8.4_哔哩哔哩_bilibili",
-                "publisher": "待核验",
-                "category": "短视频",
-                "type": "video-search",
-                "url": "https://www.sogou.com/web?query=%E9%BB%91%E9%BE%99%E6%B1%9F%E7%9C%81%E6%B0%94%E8%B1%A1%E5%B1%80%E5%8F%91%E5%B8%83%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%E6%B0%94%E8%B1%A1%E9%A3%8E%E9%99%A9%E7%BA%A2%E8%89%B2%E9%A2%84%E8%AD%A68.4_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9_bilibili&platform=bilibili",
-                "query": "黑龙江省气象局发布地质灾害气象风险红色预警8.4_哔哩哔哩_bilibili",
-                "videoPlatform": "bilibili",
-                "province": "全国",
-                "enabled": true,
-                "pendingAdapter": false
-              }
-            },
-            {
-              "id": "media-rule-3e8911dd078e",
-              "status": "ready",
-              "reason": "添加为关键词检索规则，持续发现公开材料；不代表账号全量订阅。",
-              "evidenceUrl": "https://www.bilibili.com/video/BV13s411B7fx/",
-              "evidenceTitle": "地质灾害五步避险法_哔哩哔哩_bilibili",
-              "source": {
-                "id": "media-rule-3e8911dd078e",
-                "name": "视频检索·地质灾害五步避险法_哔哩哔哩_bilibili",
-                "publisher": "待核验",
-                "category": "短视频",
-                "type": "video-search",
-                "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%E4%BA%94%E6%AD%A5%E9%81%BF%E9%99%A9%E6%B3%95_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9_bilibili&platform=bilibili",
-                "query": "地质灾害五步避险法_哔哩哔哩_bilibili",
-                "videoPlatform": "bilibili",
-                "province": "全国",
-                "enabled": true,
-                "pendingAdapter": false
-              }
-            },
-            {
-              "id": "media-rule-63d243441885",
-              "status": "ready",
-              "reason": "添加为关键词检索规则，持续发现公开材料；不代表账号全量订阅。",
-              "evidenceUrl": "https://www.bilibili.com/video/BV1QGhJ69EAe/",
-              "evidenceTitle": "广东省地质灾害科学避险-小学课堂版本_哔哩哔哩_bilibili",
-              "source": {
-                "id": "media-rule-63d243441885",
-                "name": "视频检索·广东省地质灾害科学避险-小学课堂版本_哔哩哔哩_bilibili",
-                "publisher": "待核验",
-                "category": "短视频",
-                "type": "video-search",
-                "url": "https://www.sogou.com/web?query=%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3%E7%A7%91%E5%AD%A6%E9%81%BF%E9%99%A9-%E5%B0%8F%E5%AD%A6%E8%AF%BE%E5%A0%82%E7%89%88%E6%9C%AC_%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9_bilibili&platform=bilibili",
-                "query": "广东省地质灾害科学避险-小学课堂版本_哔哩哔哩_bilibili",
-                "videoPlatform": "bilibili",
-                "province": "全国",
-                "enabled": true,
-                "pendingAdapter": false
-              }
-            }
-          ]
-        },
-        {
-          "sourceId": "web-discovery",
-          "name": "公开网页搜索发现",
-          "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9",
-          "startedAt": "2026-10-18T04:32:10+00:00",
-          "finishedAt": "2026-10-18T04:33:11+00:00",
-          "status": "partial",
-          "httpStatus": 200,
-          "pagesScanned": 15,
-          "recordsFound": 2,
-          "failures": [
-            {
-              "url": "https://m.mnr.gov.cn/gk/tzgg/202609/t20260924_2939265.html",
-              "message": "HTTP 0; curl: (28) Resolving timed out after 10000 milliseconds"
-            },
-            {
-              "url": "https://news.cctv.com/2026/09/24/ARTIVhT0kkCTu8Ng7K16AAlB260924.shtml",
-              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
-            },
-            {
-              "url": "http://gi.mnr.gov.cn/202609/t20260924_2939265.html",
-              "message": "HTTP 0; curl: (28) Resolving timed out after 10000 milliseconds"
-            },
-            {
-              "url": "https://zrzy.wuxi.gov.cn/doc/2026/10/12/4840878.shtml",
-              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
-            },
-            {
-              "url": "https://news.cctv.com/2026/08/02/ARTIe1b6qK0XUr3FhiecKks4260802.shtml",
-              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
-            },
-            {
-              "url": "https://www.sc.gov.cn/10462/zfwjts/2026/8/13/b922e36b536e4ebdae6463bf797ce9bc.shtml",
-              "message": "HTTP 0; curl: (28) Failed to connect to www.sc.gov.cn port 443 after 10000 ms: Timeout was reached"
-            },
-            {
-              "url": "https://www.toutiao.com/article/7638876440372576831/",
-              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
-            },
-            {
-              "url": "https://wenku.baidu.com/view/c7c782c1bf4cf7ec4afe04a1b0717fd5360cb2a8.html",
-              "message": "HTTP 403; 请求未成功"
-            },
-            {
-              "url": "https://dnr.yn.gov.cn/html/2026/shengtingdongtai_0810/4053539.html",
-              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
-            },
-            {
-              "url": "https://www.toutiao.com/article/7696863513373639202/",
-              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
-            },
-            {
-              "url": "https://mp.weixin.qq.com/mp/wappoc_appmsgcaptcha?poc_token=HNlL1GqjYOM6L6a7MOsR8Z9bFA0JRK9daqZ9TYiJ&target_url=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3Fsrc%3D11%26timestamp%3D1792297936%26ver%3D7033%26signature%3DPMcHzEUoplAxXm3UaKR%2AwVj9V0%2AZyTBp3pqyHx-6ekW-HEGVw9sAoFa%2Aq95RcIG3elHJttxGzlK-220P0lQfFJjLl%2A6F%2ACa3YrwjCRhSYeSjnvZwxmLX21Hyym2vzwiV%26new%3D1",
-              "message": "未定位到可核验的标题与正文，可能为验证页或不支持的页面布局"
-            },
-            {
-              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9",
-              "message": "Web search（DuckDuckGo / 搜狗）部分查询受限或未返回可核验链接；不能据此声称完成全网覆盖。"
-            }
-          ],
-          "queries": [
-            {
-              "provider": "DuckDuckGo",
-              "query": "地质灾害 成功避险",
-              "page": 1,
-              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&s=0",
-              "status": "success",
-              "returned": 10,
-              "relevant": 9
-            },
-            {
-              "provider": "DuckDuckGo",
-              "query": "地质灾害 成功避险",
-              "page": 2,
-              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&s=30",
-              "status": "success",
-              "returned": 10,
-              "relevant": 9
-            },
-            {
-              "provider": "DuckDuckGo",
-              "query": "地质灾害 成功避险 提前撤离 转移",
-              "page": 1,
-              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%8F%90%E5%89%8D%E6%92%A4%E7%A6%BB+%E8%BD%AC%E7%A7%BB&s=0",
-              "status": "success",
-              "returned": 10,
-              "relevant": 10
-            },
-            {
-              "provider": "DuckDuckGo",
-              "query": "地质灾害 成功避险 提前撤离 转移",
-              "page": 2,
-              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%8F%90%E5%89%8D%E6%92%A4%E7%A6%BB+%E8%BD%AC%E7%A7%BB&s=30",
-              "status": "success",
-              "returned": 10,
-              "relevant": 10
-            },
-            {
-              "provider": "DuckDuckGo",
-              "query": "地质灾害 成功避险 成功预警 避险",
-              "page": 1,
-              "url": "https://html.duckduckgo.com/html/?q=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%88%90%E5%8A%9F%E9%A2%84%E8%AD%A6+%E9%81%BF%E9%99%A9&s=0",
-              "status": "failure",
-              "returned": 0,
-              "relevant": 0,
-              "error": "HTTP 202; 请求未成功"
-            },
-            {
-              "provider": "搜狗",
-              "query": "地质灾害 成功避险 成功预警 避险",
-              "page": 1,
-              "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%88%90%E5%8A%9F%E9%A2%84%E8%AD%A6+%E9%81%BF%E9%99%A9&page=1",
-              "status": "success",
-              "returned": 9,
-              "relevant": 1
-            },
-            {
-              "provider": "搜狗",
-              "query": "地质灾害 成功避险 成功预警 避险",
-              "page": 2,
-              "url": "https://www.sogou.com/web?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9+%E6%88%90%E5%8A%9F%E9%A2%84%E8%AD%A6+%E9%81%BF%E9%99%A9&page=2",
-              "status": "partial",
-              "returned": 0,
-              "relevant": 0,
-              "error": "未取得可用相关结果，可能为验证页或未匹配"
-            }
-          ],
-          "searchQuery": "地质灾害 成功避险",
-          "searchProvider": "Web search（DuckDuckGo / 搜狗）",
-          "discoveredLinks": 14
-        },
-        {
-          "sourceId": "wechat-discovery",
-          "name": "公众号主动检索",
-          "url": "https://weixin.sogou.com/weixin?query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&type=2",
-          "startedAt": "2026-10-18T04:32:10+00:00",
-          "finishedAt": "2026-10-18T04:32:18+00:00",
-          "status": "partial",
-          "httpStatus": 0,
-          "pagesScanned": 1,
-          "recordsFound": 0,
-          "failures": [
-            {
-              "url": "https://weixin.sogou.com/weixin?type=2&query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&page=1",
-              "message": "微信搜索跳转未解析为公众号原文，可能需要验证"
-            }
-          ],
-          "queries": [
-            {
-              "provider": "搜狗微信",
-              "query": "地质灾害 成功避险",
-              "url": "https://weixin.sogou.com/weixin?type=2&query=%E5%9C%B0%E8%B4%A8%E7%81%BE%E5%AE%B3+%E6%88%90%E5%8A%9F%E9%81%BF%E9%99%A9&page=1",
-              "status": "partial",
-              "returned": 10,
-              "relevant": 0,
-              "error": "微信搜索跳转未解析为公众号原文，可能需要验证",
-              "unresolved": [
-                {
-                  "title": "四川出台 地质灾害 成功避险 奖励规定,最高奖5万元!",
-                  "accountName": "四川自然资源",
-                  "reason": "微信搜索跳转未解析为公众号原文，可能需要验证"
-                },
-                {
-                  "title": "最高5万元!云南出台 地质灾害 成功避险 奖励规定",
-                  "accountName": "昆明应急",
-                  "reason": "微信搜索跳转未解析为公众号原文，可能需要验证"
-                },
-                {
-                  "title": "2021年全国 地质灾害 成功避险 十大案例",
-                  "accountName": "康巴传媒",
-                  "reason": "微信搜索跳转未解析为公众号原文，可能需要验证"
-                }
-              ]
-            }
-          ],
-          "engine": "公众号适配",
-          "discoveredLinks": 0,
-          "sourceSuggestions": []
-        },
-        {
-          "sourceId": "yunnan-local",
-          "name": "云南网·地方新闻",
-          "url": "https://www.yunnan.cn/",
-          "startedAt": "2026-10-18T04:32:31+00:00",
-          "finishedAt": "2026-10-18T04:32:31+00:00",
           "status": "failure",
           "httpStatus": 403,
           "pagesScanned": 0,
